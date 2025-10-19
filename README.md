@@ -1,12 +1,15 @@
+<div align="center">
+
 # Farmio(農地租用平台)
+
+</div>
 
 <div align="center">
 
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
-![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
 
 </div>
 
@@ -46,26 +49,23 @@ Farmio是一個創新的農地租用平台，透過創新的租地方式與AI技
 
 ## 技術架構
 
-### 前端技術棧
-
-```
-React 18.3         - UI 框架
-TypeScript 5.8     - 類型安全
-Vite 5.4          - 構建工具
-TailwindCSS 3.4   - 樣式框架
-Shadcn/UI         - 元件庫
-React Router 6.30  - 路由管理
-React Query 5.83   - 數據狀態管理
-Lucide React      - 圖標庫
-```
-
 ### 後端技術棧
 
 ```
-FastAPI           - Python Web 框架
+Python 3.11+      - 程式語言
+FastAPI           - Web 框架
 Uvicorn           - ASGI 服務器
 Pydantic          - 數據驗證
 httpx             - 非同步 HTTP 客戶端
+```
+
+### 前端技術棧
+
+```
+TypeScript        - 類型安全
+React             - UI 框架
+Vite              - 構建工具
+TailwindCSS       - 樣式框架
 ```
 
 ### AI 技術
@@ -97,6 +97,7 @@ cd Farmio
 #### 2. 安裝前端依賴
 
 ```bash
+cd frontend
 npm install
 ```
 
@@ -112,13 +113,15 @@ ollama serve
 ```bash
 cd backend
 python -m venv venv
-pip install -r requirements.txt
 
 # 啟動虛擬環境
 # Windows
 venv\Scripts\activate
 # macOS/Linux
 source venv/bin/activate
+
+# 安裝依賴
+pip install -r requirements.txt
 
 # 建立環境變數檔案
 cp .env.example .env
@@ -148,7 +151,8 @@ python run.py
 
 **前端**
 ```bash
-uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+cd frontend
+npm run dev
 ```
 ---
 
@@ -156,22 +160,28 @@ uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 
 ```
 Farmio/
-├── src/                      # 前端源碼
-│   ├── components/           # React 元件
-│   │   ├── Hero.tsx         # 主畫面英雄區塊
-│   │   ├── Header.tsx       # 頁首導航
-│   │   ├── Footer.tsx       # 頁尾
-│   │   ├── FloatingButtons.tsx  # AI 助手浮動按鈕
-│   │   └── ui/              # Shadcn UI 元件
-│   ├── pages/               # 頁面組件
-│   │   ├── Index.tsx        # 首頁
-│   │   ├── Farmland.tsx     # 農地列表
-│   │   ├── Member.tsx       # 會員中心
-│   │   └── Forum.tsx        # 討論區
-│   ├── App.tsx              # 應用主入口
-│   └── main.tsx             # React 入口
+├── frontend/                 # 前端專案
+│   ├── src/                  # 前端源碼
+│   │   ├── components/       # React 元件
+│   │   │   ├── Hero.tsx     # 主畫面英雄區塊
+│   │   │   ├── Header.tsx   # 頁首導航
+│   │   │   ├── Footer.tsx   # 頁尾
+│   │   │   ├── FloatingButtons.tsx  # AI 助手浮動按鈕
+│   │   │   └── ui/          # Shadcn UI 元件
+│   │   ├── pages/           # 頁面組件
+│   │   │   ├── Index.tsx    # 首頁
+│   │   │   ├── Farmland.tsx # 農地列表
+│   │   │   ├── Member.tsx   # 會員中心
+│   │   │   └── Forum.tsx    # 討論區
+│   │   ├── App.tsx          # 應用主入口
+│   │   └── main.tsx         # React 入口
+│   ├── public/              # 靜態資源
+│   ├── package.json         # 前端依賴配置
+│   ├── tsconfig.json        # TypeScript 配置
+│   ├── tailwind.config.ts   # TailwindCSS 配置
+│   └── vite.config.ts       # Vite 配置
 │
-├── backend/                  # 後端源碼
+├── backend/                  # 後端專案
 │   ├── app/
 │   │   ├── main.py          # FastAPI 應用主程式
 │   │   ├── config.py        # 配置管理
@@ -183,13 +193,9 @@ Farmio/
 │   │   └── schemas/         # Pydantic 數據模型
 │   │       └── chat.py      # 聊天相關模型
 │   ├── requirements.txt     # Python 依賴
-│   └── run.py              # 啟動腳本
+│   ├── run.py              # 啟動腳本
+│   └── .env.example        # 環境變數範例
 │
-├── public/                  # 靜態資源
-├── package.json            # 前端依賴配置
-├── tsconfig.json           # TypeScript 配置
-├── tailwind.config.ts      # TailwindCSS 配置
-├── vite.config.ts          # Vite 配置
 └── README.md               # 專案說明文件
 ```
 
@@ -212,6 +218,6 @@ Farmio/
 
 <div align="center">
 
-Made with by Farmio Team
+**Made with ❤️ by Farmio Team**
 
 </div>
