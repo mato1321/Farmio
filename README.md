@@ -75,8 +75,8 @@ Python-dotenv   - 環境變數管理
 ### AI 技術
 
 ```
-Ollama                - 本地 LLM 運行環境
-Qwen2:latest          - 阿里巴巴千問大語言模型
+Ollama          - 本地 LLM 運行環境
+Qwen2:latest    - 阿里巴巴千問大語言模型
 ```
 
 ---
