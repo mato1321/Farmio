@@ -48,17 +48,6 @@ Farmio是一個創新的農地租用平台，透過創新的租地方式與AI技
 
 ## 技術架構
 
-### 後端技術棧
-
-```
-Python          - 程式語言
-FastAPI         - Web 框架
-Uvicorn         - ASGI 服務器
-Pydantic        - 數據驗證
-HTTPX           - 非同步 HTTP 客戶端
-Python-dotenv   - 環境變數管理
-```
-
 ### 前端技術棧
 
 ```
@@ -70,6 +59,17 @@ Shadcn/UI       - 元件庫
 React Router    - 路由管理
 React Query     - 數據狀態管理
 Lucide React    - 圖標庫
+```
+
+### 後端技術棧
+
+```
+Python          - 程式語言
+FastAPI         - Web 框架
+Uvicorn         - ASGI 服務器
+Pydantic        - 數據驗證
+HTTPX           - 非同步 HTTP 客戶端
+Python-dotenv   - 環境變數管理
 ```
 
 ### AI 技術
