@@ -1,9 +1,6 @@
 <div align="center">
 
-<h1>
-  <img src="./frontend/public/logo.ico" alt="Farmio Logo" width="60" height="60" style="vertical-align: middle;"/>
-  Farmio
-</h1>
+# Farmio - 農地租用平台
 
 <div align="center">
 <br/>
