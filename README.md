@@ -1,15 +1,22 @@
 <div align="center">
 
-# Farmio(農地租用平台)
+<img src="./frontend/public/logo.ico" alt="Farmio Logo" width="100" height="100"/>
+
+# Farmio
+
+### 🌾 智能農地租用平台 | AI-Powered Agricultural Land Rental Platform
+
+*運用人工智慧技術，重新定義農業資源共享與永續發展*
 
 </div>
 
 <div align="center">
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
 
 </div>
 
@@ -52,27 +59,32 @@ Farmio是一個創新的農地租用平台，透過創新的租地方式與AI技
 ### 後端技術棧
 
 ```
-Python 3.11+      - 程式語言
-FastAPI           - Web 框架
-Uvicorn           - ASGI 服務器
-Pydantic          - 數據驗證
-httpx             - 非同步 HTTP 客戶端
+Python 3.11+          - 程式語言
+FastAPI 0.104.1       - Web 框架
+Uvicorn 0.24.0        - ASGI 服務器
+Pydantic 2.5.0        - 數據驗證
+HTTPX 0.25.2          - 非同步 HTTP 客戶端
+Python-dotenv 1.0.0   - 環境變數管理
 ```
 
 ### 前端技術棧
 
 ```
-TypeScript        - 類型安全
-React             - UI 框架
-Vite              - 構建工具
-TailwindCSS       - 樣式框架
+TypeScript 5.8.3      - 類型安全
+React 18.3.1          - UI 框架
+Vite 5.4.19           - 構建工具
+TailwindCSS 3.4.17    - 樣式框架
+Shadcn/UI             - 元件庫
+React Router 6.30.1   - 路由管理
+React Query 5.83.0    - 數據狀態管理
+Lucide React 0.462.0  - 圖標庫
 ```
 
 ### AI 技術
 
 ```
-Ollama            - 本地 LLM 運行環境
-Qwen2:latest      - 阿里巴巴千問大語言模型
+Ollama                - 本地 LLM 運行環境
+Qwen2:latest          - 阿里巴巴千問大語言模型
 ```
 
 ---
@@ -97,7 +109,6 @@ cd Farmio
 #### 2. 安裝前端依賴
 
 ```bash
-cd frontend
 npm install
 ```
 
@@ -113,15 +124,13 @@ ollama serve
 ```bash
 cd backend
 python -m venv venv
+pip install -r requirements.txt
 
 # 啟動虛擬環境
 # Windows
 venv\Scripts\activate
 # macOS/Linux
 source venv/bin/activate
-
-# 安裝依賴
-pip install -r requirements.txt
 
 # 建立環境變數檔案
 cp .env.example .env
@@ -151,8 +160,7 @@ python run.py
 
 **前端**
 ```bash
-cd frontend
-npm run dev
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 ---
 
@@ -160,28 +168,22 @@ npm run dev
 
 ```
 Farmio/
-├── frontend/                 # 前端專案
-│   ├── src/                  # 前端源碼
-│   │   ├── components/       # React 元件
-│   │   │   ├── Hero.tsx     # 主畫面英雄區塊
-│   │   │   ├── Header.tsx   # 頁首導航
-│   │   │   ├── Footer.tsx   # 頁尾
-│   │   │   ├── FloatingButtons.tsx  # AI 助手浮動按鈕
-│   │   │   └── ui/          # Shadcn UI 元件
-│   │   ├── pages/           # 頁面組件
-│   │   │   ├── Index.tsx    # 首頁
-│   │   │   ├── Farmland.tsx # 農地列表
-│   │   │   ├── Member.tsx   # 會員中心
-│   │   │   └── Forum.tsx    # 討論區
-│   │   ├── App.tsx          # 應用主入口
-│   │   └── main.tsx         # React 入口
-│   ├── public/              # 靜態資源
-│   ├── package.json         # 前端依賴配置
-│   ├── tsconfig.json        # TypeScript 配置
-│   ├── tailwind.config.ts   # TailwindCSS 配置
-│   └── vite.config.ts       # Vite 配置
+├── src/                      # 前端源碼
+│   ├── components/           # React 元件
+│   │   ├── Hero.tsx         # 主畫面英雄區塊
+│   │   ├── Header.tsx       # 頁首導航
+│   │   ├── Footer.tsx       # 頁尾
+│   │   ├── FloatingButtons.tsx  # AI 助手浮動按鈕
+│   │   └── ui/              # Shadcn UI 元件
+│   ├── pages/               # 頁面組件
+│   │   ├── Index.tsx        # 首頁
+│   │   ├── Farmland.tsx     # 農地列表
+│   │   ├── Member.tsx       # 會員中心
+│   │   └── Forum.tsx        # 討論區
+│   ├── App.tsx              # 應用主入口
+│   └── main.tsx             # React 入口
 │
-├── backend/                  # 後端專案
+├── backend/                  # 後端源碼
 │   ├── app/
 │   │   ├── main.py          # FastAPI 應用主程式
 │   │   ├── config.py        # 配置管理
@@ -193,9 +195,13 @@ Farmio/
 │   │   └── schemas/         # Pydantic 數據模型
 │   │       └── chat.py      # 聊天相關模型
 │   ├── requirements.txt     # Python 依賴
-│   ├── run.py              # 啟動腳本
-│   └── .env.example        # 環境變數範例
+│   └── run.py              # 啟動腳本
 │
+├── public/                  # 靜態資源
+├── package.json            # 前端依賴配置
+├── tsconfig.json           # TypeScript 配置
+├── tailwind.config.ts      # TailwindCSS 配置
+├── vite.config.ts          # Vite 配置
 └── README.md               # 專案說明文件
 ```
 
