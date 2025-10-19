@@ -1,5 +1,4 @@
-<div align="center">
-# Farmio - 農地租用平台
+
 
 <div align="center">
 <br/>
