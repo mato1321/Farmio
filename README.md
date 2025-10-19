@@ -3,11 +3,6 @@
 <img src="./frontend/public/logo.ico" alt="Farmio Logo" width="100" height="100"/>
 
 # Farmio
-
-### 🌾 智能農地租用平台 | AI-Powered Agricultural Land Rental Platform
-
-*運用人工智慧技術，重新定義農業資源共享與永續發展*
-
 </div>
 
 <div align="center">
