@@ -118,12 +118,6 @@ cd backend
 python -m venv venv
 pip install -r requirements.txt
 
-# Activate virtual environment
-# Windows
-venv\Scripts\activate
-# macOS/Linux
-source venv/bin/activate
-
 # Create environment variable file
 cp .env.example .env
 ```
@@ -144,14 +138,19 @@ API_PORT=8000
 ollama serve
 ```
 
-**Backend**
-```bash
-cd backend
-python run.py
-```
-
 **Frontend**
 ```bash
+npm run dev
+```
+
+**Backend**
+```bash
+# Activate virtual environment
+# Windows
+venv\Scripts\activate
+# macOS/Linux
+source venv/bin/activate
+
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 ---

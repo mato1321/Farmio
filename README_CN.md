@@ -104,7 +104,7 @@ cd Farmio
 npm install
 ```
 
-#### 3. 安裝 Ollama 與 AI 模型
+#### 3. 安裝 Ollama
 
 ```bash
 ollama pull qwen2:latest
@@ -117,12 +117,6 @@ ollama serve
 cd backend
 python -m venv venv
 pip install -r requirements.txt
-
-# 啟動虛擬環境
-# Windows
-venv\Scripts\activate
-# macOS/Linux
-source venv/bin/activate
 
 # 建立環境變數檔案
 cp .env.example .env
@@ -144,14 +138,19 @@ API_PORT=8000
 ollama serve
 ```
 
-**後端**
-```bash
-cd backend
-python run.py
-```
-
 **前端**
 ```bash
+npm run dev
+```
+
+**後端**
+```bash
+# 啟動虛擬環境
+# Windows
+venv\Scripts\activate
+# macOS/Linux
+source venv/bin/activate
+
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 ---
