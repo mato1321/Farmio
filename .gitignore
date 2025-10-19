@@ -1,0 +1,208 @@
+# ===========================================
+# Environment Variables & Secrets
+# ===========================================
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+*.env
+.env.*
+
+# ===========================================
+# Python Backend
+# ===========================================
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# PyCharm
+.idea/
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.pytest_cache/
+
+# ===========================================
+# Node.js / React Frontend
+# ===========================================
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Production build
+dist/
+dist-ssr/
+build/
+*.local
+
+# Testing
+coverage/
+
+# Vite
+.vite/
+
+# ===========================================
+# AI / Machine Learning
+# ===========================================
+# Ollama models cache
+*.gguf
+*.bin
+ollama_models/
+
+# ML model files
+*.h5
+*.pkl
+*.pickle
+*.pt
+*.pth
+*.onnx
+*.pb
+*.tflite
+models/
+checkpoints/
+
+# ===========================================
+# IDEs and Editors
+# ===========================================
+# VSCode
+.vscode/
+*.code-workspace
+
+# JetBrains IDEs
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+.vim/
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# ===========================================
+# Operating System Files
+# ===========================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+
+# ===========================================
+# Logs and Databases
+# ===========================================
+*.log
+logs/
+*.sqlite
+*.sqlite3
+*.db
+
+# ===========================================
+# Temporary Files
+# ===========================================
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+.cache/
+tmp/
+temp/
+
+# ===========================================
+# Sensitive Data & Configurations
+# ===========================================
+# API keys and secrets
+secrets/
+*.key
+*.pem
+*.crt
+*.cer
+*.p12
+
+# Configuration files with sensitive data
+config.local.js
+config.local.json
+
+# ===========================================
+# Project Specific
+# ===========================================
+# Lovable generated files (if needed to ignore)
+# frontend/README.md
+
+# Backup files
+*.backup
+*.orig
+
+# Compressed files
+*.zip
+*.tar.gz
+*.rar
