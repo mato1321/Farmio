@@ -1,4 +1,4 @@
-# Farmio(¹A¦a¯²¥Î¥­¥x)
+# Farmio(è¾²åœ°ç§Ÿç”¨å¹³å°)
 
 <div align="center">
 
@@ -10,121 +10,121 @@
 
 </div>
 
-## ±M®×Â²¤¶
+## å°ˆæ¡ˆç°¡ä»‹
 
-Farmio¬O¤@­Ó³Ğ·sªº¹A¦a¯²¥Î¥­¥x¡A³z¹L³Ğ·sªº¯²¦a¤è¦¡»PAI§Ş³N´£¤É¹A¦a¨Ï¥Î®Ä²v¡A«P¶i¹A·~¸ê·½ªº¥ÃÄòµo®i¡C
+Farmioæ˜¯ä¸€å€‹å‰µæ–°çš„è¾²åœ°ç§Ÿç”¨å¹³å°ï¼Œé€éå‰µæ–°çš„ç§Ÿåœ°æ–¹å¼èˆ‡AIæŠ€è¡“æå‡è¾²åœ°ä½¿ç”¨æ•ˆç‡ï¼Œä¿ƒé€²è¾²æ¥­è³‡æºçš„æ°¸çºŒç™¼å±•ã€‚
 
-### ®Ö¤ß»ù­È
+### æ ¸å¿ƒåƒ¹å€¼
 
-- **¥@¥N´C¦X**¡GÅı¦~»´¤H¯à°÷¦³§ó¦hªº·NÄ@¥h°È¹A
-- **§Y®É¿Ô¸ß**¡G¨Ï¥Î²{¤µ¼öªù¼Ò«¬´£¨Ñ¹A·~¿Ô¸ßªA°È
-- **¸ê·½Àu¤Æ**¡G´£¤É¹A¦a§Q¥Î²v¡A´î¤Ö¶¢¸m¸ê·½
-- **¥ÃÄòµo®i**¡G«P¶i¹A·~¸ê·½ªº¦³®Ä´`Àô»P¥i«ùÄò§Q¥Î
-
----
-
-## ¥\¯à¯S¦â
-
-### ¹A¦a¯²¸î
-- **§Ú­n¯²¦a**¡GÂsÄı¥i¯²¸î¹A¦a¡A¬d¬İ¸Ô²Ó¸ê°T»P¦a²z¦ì¸m
-- **§Ú­n¥X¯²**¡G³z¹Lªí³æ»´ÃP¥Zµn¹A¦a¥X¯²¸ê°T
-- **´¼¼z·j´M**¡G®Ú¾Ú¦a°Ï¡B­±¿n¡B»ù®æµ¥±ø¥ó¿z¿ï
-
-### AI ¹A·~§U¤â
-- **§Y®É¹ï¸Ü**¡G¤ä´©ÁcÅé¤¤¤åªº AI ²á¤Ñ¾÷¾¹¤H
-- **±M·~¿Ô¸ß**¡G¹A¦aºŞ²z¡B§@ª«ºØ´Ó¡B¹A¨ã¨Ï¥Îµ¥±M·~«ØÄ³
-- **¾ú¥v°O¾Ğ**¡G«O¯d¹ï¸Ü¯ßµ¸¡A´£¨Ñ³s³eªº¿Ô¸ßÅéÅç
-
-### ªÀ¸s¤¬°Ê
-- **°Q½×°Ï**¡G¹A¥Á¥æ¬y¸gÅç»P¤ß±o
-- **ª¾ÃÑ®w**¡G·J¾ã¹A·~¬ÛÃöª¾ÃÑ»P§Ş³N¤å³¹
-
-### ¥ø·~¦X§@
-- ¥ø·~¸ê°T¾ã¦X»P¦X§@¤è®×
+- **ä¸–ä»£åª’åˆ**ï¼šè®“å¹´è¼•äººèƒ½å¤ æœ‰æ›´å¤šçš„æ„é¡˜å»å‹™è¾²
+- **å³æ™‚è«®è©¢**ï¼šä½¿ç”¨ç¾ä»Šç†±é–€æ¨¡å‹æä¾›è¾²æ¥­è«®è©¢æœå‹™
+- **è³‡æºå„ªåŒ–**ï¼šæå‡è¾²åœ°åˆ©ç”¨ç‡ï¼Œæ¸›å°‘é–’ç½®è³‡æº
+- **æ°¸çºŒç™¼å±•**ï¼šä¿ƒé€²è¾²æ¥­è³‡æºçš„æœ‰æ•ˆå¾ªç’°èˆ‡å¯æŒçºŒåˆ©ç”¨
 
 ---
 
-## §Ş³N¬[ºc
+## åŠŸèƒ½ç‰¹è‰²
 
-### «eºİ§Ş³N´Ì
+### è¾²åœ°ç§Ÿè³ƒ
+- **æˆ‘è¦ç§Ÿåœ°**ï¼šç€è¦½å¯ç§Ÿè³ƒè¾²åœ°ï¼ŒæŸ¥çœ‹è©³ç´°è³‡è¨Šèˆ‡åœ°ç†ä½ç½®
+- **æˆ‘è¦å‡ºç§Ÿ**ï¼šé€éè¡¨å–®è¼•é¬†åˆŠç™»è¾²åœ°å‡ºç§Ÿè³‡è¨Š
+- **æ™ºæ…§æœå°‹**ï¼šæ ¹æ“šåœ°å€ã€é¢ç©ã€åƒ¹æ ¼ç­‰æ¢ä»¶ç¯©é¸
+
+### AI è¾²æ¥­åŠ©æ‰‹
+- **å³æ™‚å°è©±**ï¼šæ”¯æ´ç¹é«”ä¸­æ–‡çš„ AI èŠå¤©æ©Ÿå™¨äºº
+- **å°ˆæ¥­è«®è©¢**ï¼šè¾²åœ°ç®¡ç†ã€ä½œç‰©ç¨®æ¤ã€è¾²å…·ä½¿ç”¨ç­‰å°ˆæ¥­å»ºè­°
+- **æ­·å²è¨˜æ†¶**ï¼šä¿ç•™å°è©±è„ˆçµ¡ï¼Œæä¾›é€£è²«çš„è«®è©¢é«”é©—
+
+### ç¤¾ç¾¤äº’å‹•
+- **è¨è«–å€**ï¼šè¾²æ°‘äº¤æµç¶“é©—èˆ‡å¿ƒå¾—
+- **çŸ¥è­˜åº«**ï¼šå½™æ•´è¾²æ¥­ç›¸é—œçŸ¥è­˜èˆ‡æŠ€è¡“æ–‡ç« 
+
+### ä¼æ¥­åˆä½œ
+- ä¼æ¥­è³‡è¨Šæ•´åˆèˆ‡åˆä½œæ–¹æ¡ˆ
+
+---
+
+## æŠ€è¡“æ¶æ§‹
+
+### å‰ç«¯æŠ€è¡“æ£§
 
 ```
-React 18.3         - UI ®Ø¬[
-TypeScript 5.8     - Ãş«¬¦w¥ş
-Vite 5.4          - ºc«Ø¤u¨ã
-TailwindCSS 3.4   - ¼Ë¦¡®Ø¬[
-Shadcn/UI         - ¤¸¥ó®w
-React Router 6.30  - ¸ô¥ÑºŞ²z
-React Query 5.83   - ¼Æ¾Úª¬ºAºŞ²z
-Lucide React      - ¹Ï¼Ğ®w
+React 18.3         - UI æ¡†æ¶
+TypeScript 5.8     - é¡å‹å®‰å…¨
+Vite 5.4          - æ§‹å»ºå·¥å…·
+TailwindCSS 3.4   - æ¨£å¼æ¡†æ¶
+Shadcn/UI         - å…ƒä»¶åº«
+React Router 6.30  - è·¯ç”±ç®¡ç†
+React Query 5.83   - æ•¸æ“šç‹€æ…‹ç®¡ç†
+Lucide React      - åœ–æ¨™åº«
 ```
 
-### «áºİ§Ş³N´Ì
+### å¾Œç«¯æŠ€è¡“æ£§
 
 ```
-FastAPI           - Python Web ®Ø¬[
-Uvicorn           - ASGI ªA°È¾¹
-Pydantic          - ¼Æ¾ÚÅçÃÒ
-httpx             - «D¦P¨B HTTP «È¤áºİ
+FastAPI           - Python Web æ¡†æ¶
+Uvicorn           - ASGI æœå‹™å™¨
+Pydantic          - æ•¸æ“šé©—è­‰
+httpx             - éåŒæ­¥ HTTP å®¢æˆ¶ç«¯
 ```
 
-### AI §Ş³N
+### AI æŠ€è¡“
 
 ```
-Ollama            - ¥»¦a LLM ¹B¦æÀô¹Ò
-Qwen2:latest      - ªü¨½¤Ú¤Ú¤d°İ¤j»y¨¥¼Ò«¬
+Ollama            - æœ¬åœ° LLM é‹è¡Œç’°å¢ƒ
+Qwen2:latest      - é˜¿é‡Œå·´å·´åƒå•å¤§èªè¨€æ¨¡å‹
 ```
 
 ---
 
-## §Ö³t¶}©l
+## å¿«é€Ÿé–‹å§‹
 
-### ¨t²Î»İ¨D
+### ç³»çµ±éœ€æ±‚
 
 - **Node.js** >= 18.0.0
 - **Python** >= 3.11
-- **Ollama** (¥Î©ó AI ¥\¯à)
+- **Ollama** (ç”¨æ–¼ AI åŠŸèƒ½)
 
-### ¦w¸Ë¨BÆJ
+### å®‰è£æ­¥é©Ÿ
 
-#### 1. §J¶©±M®×
+#### 1. å…‹éš†å°ˆæ¡ˆ
 
 ```bash
 git clone https://github.com/mato1321/Farmio.git
 cd Farmio
 ```
 
-#### 2. ¦w¸Ë«eºİ¨Ì¿à
+#### 2. å®‰è£å‰ç«¯ä¾è³´
 
 ```bash
 npm install
 ```
 
-#### 3. ¦w¸Ë Ollama »P AI ¼Ò«¬
+#### 3. å®‰è£ Ollama èˆ‡ AI æ¨¡å‹
 
 ```bash
 ollama pull qwen2:latest
 ollama serve
 ```
 
-#### 4. ³]©w«áºİÀô¹Ò
+#### 4. è¨­å®šå¾Œç«¯ç’°å¢ƒ
 
 ```bash
 cd backend
 python -m venv venv
 pip install -r requirements.txt
 
-# ±Ò°ÊµêÀÀÀô¹Ò
+# å•Ÿå‹•è™›æ“¬ç’°å¢ƒ
 # Windows
 venv\Scripts\activate
 # macOS/Linux
 source venv/bin/activate
 
-# «Ø¥ßÀô¹ÒÅÜ¼ÆÀÉ®×
+# å»ºç«‹ç’°å¢ƒè®Šæ•¸æª”æ¡ˆ
 cp .env.example .env
 ```
 
-½s¿è `.env` ÀÉ®×¡G
+ç·¨è¼¯ `.env` æª”æ¡ˆï¼š
 
 ```env
 OLLAMA_BASE_URL=http://localhost:11434
@@ -133,79 +133,79 @@ API_HOST=0.0.0.0
 API_PORT=8000
 ```
 
-#### 5. ±Ò°ÊªA°È
+#### 5. å•Ÿå‹•æœå‹™
 
-**Ollama ªA°È**
+**Ollama æœå‹™**
 ```bash
 ollama serve
 ```
 
-**«áºİ**
+**å¾Œç«¯**
 ```bash
 cd backend
 python run.py
 ```
 
-**«eºİ**
+**å‰ç«¯**
 ```bash
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 ---
 
-## ±M®×µ²ºc
+## å°ˆæ¡ˆçµæ§‹
 
 ```
 Farmio/
-¢u¢w¢w src/                      # «eºİ·½½X
-¢x   ¢u¢w¢w components/           # React ¤¸¥ó
-¢x   ¢x   ¢u¢w¢w Hero.tsx         # ¥Dµe­±­^¶¯°Ï¶ô
-¢x   ¢x   ¢u¢w¢w Header.tsx       # ­¶­º¾É¯è
-¢x   ¢x   ¢u¢w¢w Footer.tsx       # ­¶§À
-¢x   ¢x   ¢u¢w¢w FloatingButtons.tsx  # AI §U¤â¯B°Ê«ö¶s
-¢x   ¢x   ¢|¢w¢w ui/              # Shadcn UI ¤¸¥ó
-¢x   ¢u¢w¢w pages/               # ­¶­±²Õ¥ó
-¢x   ¢x   ¢u¢w¢w Index.tsx        # ­º­¶
-¢x   ¢x   ¢u¢w¢w Farmland.tsx     # ¹A¦a¦Cªí
-¢x   ¢x   ¢u¢w¢w Member.tsx       # ·|­û¤¤¤ß
-¢x   ¢x   ¢|¢w¢w Forum.tsx        # °Q½×°Ï
-¢x   ¢u¢w¢w App.tsx              # À³¥Î¥D¤J¤f
-¢x   ¢|¢w¢w main.tsx             # React ¤J¤f
-¢x
-¢u¢w¢w backend/                  # «áºİ·½½X
-¢x   ¢u¢w¢w app/
-¢x   ¢x   ¢u¢w¢w main.py          # FastAPI À³¥Î¥Dµ{¦¡
-¢x   ¢x   ¢u¢w¢w config.py        # °t¸mºŞ²z
-¢x   ¢x   ¢u¢w¢w api/             # API ¸ô¥Ñ
-¢x   ¢x   ¢x   ¢|¢w¢w routes/
-¢x   ¢x   ¢x       ¢|¢w¢w chat.py  # AI ²á¤Ñ API
-¢x   ¢x   ¢u¢w¢w services/        # ·~°ÈÅŞ¿è
-¢x   ¢x   ¢x   ¢|¢w¢w ollama.py    # Ollama ªA°È¾ã¦X
-¢x   ¢x   ¢|¢w¢w schemas/         # Pydantic ¼Æ¾Ú¼Ò«¬
-¢x   ¢x       ¢|¢w¢w chat.py      # ²á¤Ñ¬ÛÃö¼Ò«¬
-¢x   ¢u¢w¢w requirements.txt     # Python ¨Ì¿à
-¢x   ¢|¢w¢w run.py              # ±Ò°Ê¸}¥»
-¢x
-¢u¢w¢w public/                  # ÀRºA¸ê·½
-¢u¢w¢w package.json            # «eºİ¨Ì¿à°t¸m
-¢u¢w¢w tsconfig.json           # TypeScript °t¸m
-¢u¢w¢w tailwind.config.ts      # TailwindCSS °t¸m
-¢u¢w¢w vite.config.ts          # Vite °t¸m
-¢|¢w¢w README.md               # ±M®×»¡©ú¤å¥ó
+â”œâ”€â”€ src/                      # å‰ç«¯æºç¢¼
+â”‚   â”œâ”€â”€ components/           # React å…ƒä»¶
+â”‚   â”‚   â”œâ”€â”€ Hero.tsx         # ä¸»ç•«é¢è‹±é›„å€å¡Š
+â”‚   â”‚   â”œâ”€â”€ Header.tsx       # é é¦–å°èˆª
+â”‚   â”‚   â”œâ”€â”€ Footer.tsx       # é å°¾
+â”‚   â”‚   â”œâ”€â”€ FloatingButtons.tsx  # AI åŠ©æ‰‹æµ®å‹•æŒ‰éˆ•
+â”‚   â”‚   â””â”€â”€ ui/              # Shadcn UI å…ƒä»¶
+â”‚   â”œâ”€â”€ pages/               # é é¢çµ„ä»¶
+â”‚   â”‚   â”œâ”€â”€ Index.tsx        # é¦–é 
+â”‚   â”‚   â”œâ”€â”€ Farmland.tsx     # è¾²åœ°åˆ—è¡¨
+â”‚   â”‚   â”œâ”€â”€ Member.tsx       # æœƒå“¡ä¸­å¿ƒ
+â”‚   â”‚   â””â”€â”€ Forum.tsx        # è¨è«–å€
+â”‚   â”œâ”€â”€ App.tsx              # æ‡‰ç”¨ä¸»å…¥å£
+â”‚   â””â”€â”€ main.tsx             # React å…¥å£
+â”‚
+â”œâ”€â”€ backend/                  # å¾Œç«¯æºç¢¼
+â”‚   â”œâ”€â”€ app/
+â”‚   â”‚   â”œâ”€â”€ main.py          # FastAPI æ‡‰ç”¨ä¸»ç¨‹å¼
+â”‚   â”‚   â”œâ”€â”€ config.py        # é…ç½®ç®¡ç†
+â”‚   â”‚   â”œâ”€â”€ api/             # API è·¯ç”±
+â”‚   â”‚   â”‚   â””â”€â”€ routes/
+â”‚   â”‚   â”‚       â””â”€â”€ chat.py  # AI èŠå¤© API
+â”‚   â”‚   â”œâ”€â”€ services/        # æ¥­å‹™é‚è¼¯
+â”‚   â”‚   â”‚   â””â”€â”€ ollama.py    # Ollama æœå‹™æ•´åˆ
+â”‚   â”‚   â””â”€â”€ schemas/         # Pydantic æ•¸æ“šæ¨¡å‹
+â”‚   â”‚       â””â”€â”€ chat.py      # èŠå¤©ç›¸é—œæ¨¡å‹
+â”‚   â”œâ”€â”€ requirements.txt     # Python ä¾è³´
+â”‚   â””â”€â”€ run.py              # å•Ÿå‹•è…³æœ¬
+â”‚
+â”œâ”€â”€ public/                  # éœæ…‹è³‡æº
+â”œâ”€â”€ package.json            # å‰ç«¯ä¾è³´é…ç½®
+â”œâ”€â”€ tsconfig.json           # TypeScript é…ç½®
+â”œâ”€â”€ tailwind.config.ts      # TailwindCSS é…ç½®
+â”œâ”€â”€ vite.config.ts          # Vite é…ç½®
+â””â”€â”€ README.md               # å°ˆæ¡ˆèªªæ˜æ–‡ä»¶
 ```
 
 ---
 
-## ¹Î¶¤
+## åœ˜éšŠ
 
-- **¶}µoªÌ**: [@mato1321](https://github.com/mato1321)
+- **é–‹ç™¼è€…**: [@mato1321](https://github.com/mato1321)
 
 ---
 
-## Ápµ¸§Ú­Ì
+## è¯çµ¡æˆ‘å€‘
 
-¦p¦³¥ô¦ó°İÃD©Î«ØÄ³¡AÅwªï³z¹L¥H¤U¤è¦¡Ápµ¸¡G
+å¦‚æœ‰ä»»ä½•å•é¡Œæˆ–å»ºè­°ï¼Œæ­¡è¿é€éä»¥ä¸‹æ–¹å¼è¯çµ¡ï¼š
 
-- GitHub Issues: [´£¥æ°İÃD](https://github.com/mato1321/Farmio/issues)
+- GitHub Issues: [æäº¤å•é¡Œ](https://github.com/mato1321/Farmio/issues)
 - Email: charleskao811@gmail.com
 
 ---
