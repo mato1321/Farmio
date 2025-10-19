@@ -1,10 +1,10 @@
 <div align="center">
 
-# Farmio - 農地租用平台
+# Farmio - Agricultural Land Rental Platform
 
 <br/>
 
-[![Python](https://img.shields.io/badge/Python-≥3.11-3776AB.svg?logo=python)](https://www.python.org/)
+[![Python](https://img.shields.io/badge/Python-?3.11-3776AB.svg?logo=python)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.104.1-009688.svg?logo=fastapi)](https://fastapi.tiangolo.com/)
 [![React](https://img.shields.io/badge/React-18.3.1-61DAFB.svg?logo=react)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8.3-3178C6.svg?logo=typescript)](https://www.typescriptlang.org/)
@@ -12,123 +12,123 @@
 
 </div>
 
-## 專案簡介
+## Project Overview
 
-Farmio是一個創新的農地租用平台，透過創新的租地方式與AI技術提升農地使用效率，促進農業資源的永續發展。
+Farmio is an innovative agricultural land rental platform that enhances farmland efficiency through innovative rental methods and AI technology, promoting sustainable development of agricultural resources.
 
-### 核心價值
+### Core Values
 
-- **世代媒合**：讓年輕人能夠有更多的意願去務農
-- **即時諮詢**：使用現今熱門模型提供農業諮詢服務
-- **資源優化**：提升農地利用率，減少閒置資源
-- **永續發展**：促進農業資源的有效循環與可持續利用
-
----
-
-## 功能特色
-
-### 農地租賃
-- **我要租地**：瀏覽可租賃農地，查看詳細資訊與地理位置
-- **我要出租**：透過表單輕鬆刊登農地出租資訊
-- **智慧搜尋**：根據地區、面積、價格等條件篩選
-
-### AI 農業小助手
-- **即時對話**：支援繁體中文的 AI 聊天機器人
-- **專業諮詢**：農地管理、作物種植、農具使用等專業建議
-- **歷史記憶**：保留對話脈絡，提供連貫的諮詢體驗
-
-### 社群互動
-- **討論區**：農民交流經驗與心得
-- **知識庫**：彙整農業相關知識與技術文章
-
-### 企業合作
-- 企業資訊整合與合作方案
+- **Generational Matching**: Encouraging more young people to engage in farming
+- **Real-time Consultation**: Providing agricultural consulting services using popular AI models
+- **Resource Optimization**: Improving farmland utilization and reducing idle resources
+- **Sustainable Development**: Promoting effective circulation and sustainable use of agricultural resources
 
 ---
 
-## 技術架構
+## Features
 
-### 前端技術棧
+### Farmland Rental
+- **Rent Land**: Browse available farmland, view detailed information and geographic locations
+- **List Land**: Easily post farmland rental information through forms
+- **Smart Search**: Filter by region, area, price, and other criteria
 
-```
-TypeScript      - 類型安全
-React           - UI 框架
-Vite            - 構建工具
-TailwindCSS     - 樣式框架
-Shadcn/UI       - 元件庫
-React Router    - 路由管理
-React Query     - 數據狀態管理
-Lucide React    - 圖標庫
-```
+### AI Agricultural Assistant
+- **Real-time Chat**: AI chatbot with Traditional Chinese support
+- **Professional Consultation**: Expert advice on land management, crop cultivation, and farm equipment usage
+- **Conversation Memory**: Maintains conversation context for coherent consulting experience
 
-### 後端技術棧
+### Community Interaction
+- **Discussion Forum**: Platform for farmers to exchange experiences and insights
+- **Knowledge Base**: Compilation of agricultural knowledge and technical articles
 
-```
-Python          - 程式語言
-FastAPI         - Web 框架
-Uvicorn         - ASGI 服務器
-Pydantic        - 數據驗證
-HTTPX           - 非同步 HTTP 客戶端
-Python-dotenv   - 環境變數管理
-```
+### Enterprise Cooperation
+- Enterprise information integration and partnership solutions
 
-### AI 技術
+---
+
+## Tech Stack
+
+### Frontend Technologies
 
 ```
-Ollama          - 本地 LLM 運行環境
-Qwen2:latest    - 阿里巴巴千問大語言模型
+TypeScript      - Type Safety
+React           - UI Framework
+Vite            - Build Tool
+TailwindCSS     - CSS Framework
+Shadcn/UI       - Component Library
+React Router    - Routing Management
+React Query     - Data State Management
+Lucide React    - Icon Library
+```
+
+### Backend Technologies
+
+```
+Python          - Programming Language
+FastAPI         - Web Framework
+Uvicorn         - ASGI Server
+Pydantic        - Data Validation
+HTTPX           - Async HTTP Client
+Python-dotenv   - Environment Variable Management
+```
+
+### AI Technologies
+
+```
+Ollama          - Local LLM Runtime Environment
+Qwen2:latest    - Alibaba Qwen Large Language Model
 ```
 
 ---
 
-## 快速開始
+## Quick Start
 
-### 系統需求
+### System Requirements
 
 - **Node.js** >= 18.0.0
 - **Python** >= 3.11
-- **Ollama** (用於 AI 功能)
+- **Ollama** (for AI features)
 
-### 安裝步驟
+### Installation Steps
 
-#### 1. 克隆專案
+#### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/mato1321/Farmio.git
 cd Farmio
 ```
 
-#### 2. 安裝前端依賴
+#### 2. Install Frontend Dependencies
 
 ```bash
 npm install
 ```
 
-#### 3. 安裝 Ollama 與 AI 模型
+#### 3. Install Ollama and AI Model
 
 ```bash
 ollama pull qwen2:latest
 ollama serve
 ```
 
-#### 4. 設定後端環境
+#### 4. Setup Backend Environment
 
 ```bash
 cd backend
 python -m venv venv
 pip install -r requirements.txt
 
-# 啟動虛擬環境
+# Activate virtual environment
 # Windows
 venv\Scripts\activate
 # macOS/Linux
 source venv/bin/activate
 
-# 建立環境變數檔案
+# Create environment variable file
 cp .env.example .env
 ```
 
-編輯 `.env` 檔案：
+Edit `.env` file:
 
 ```env
 OLLAMA_BASE_URL=http://localhost:11434
@@ -137,85 +137,85 @@ API_HOST=0.0.0.0
 API_PORT=8000
 ```
 
-#### 5. 啟動服務
+#### 5. Start Services
 
-**Ollama 服務**
+**Ollama Service**
 ```bash
 ollama serve
 ```
 
-**後端**
+**Backend**
 ```bash
 cd backend
 python run.py
 ```
 
-**前端**
+**Frontend**
 ```bash
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 ---
 
-## 專案結構
+## Project Structure
 
 ```
 Farmio/
-├── src/                      # 前端源碼
-│   ├── components/           # React 元件
-│   │   ├── Hero.tsx         # 主畫面英雄區塊
-│   │   ├── Header.tsx       # 頁首導航
-│   │   ├── Footer.tsx       # 頁尾
-│   │   ├── FloatingButtons.tsx  # AI 助手浮動按鈕
-│   │   └── ui/              # Shadcn UI 元件
-│   ├── pages/               # 頁面組件
-│   │   ├── Index.tsx        # 首頁
-│   │   ├── Farmland.tsx     # 農地列表
-│   │   ├── Member.tsx       # 會員中心
-│   │   └── Forum.tsx        # 討論區
-│   ├── App.tsx              # 應用主入口
-│   └── main.tsx             # React 入口
-│
-├── backend/                  # 後端源碼
-│   ├── app/
-│   │   ├── main.py          # FastAPI 應用主程式
-│   │   ├── config.py        # 配置管理
-│   │   ├── api/             # API 路由
-│   │   │   └── routes/
-│   │   │       └── chat.py  # AI 聊天 API
-│   │   ├── services/        # 業務邏輯
-│   │   │   └── ollama.py    # Ollama 服務整合
-│   │   └── schemas/         # Pydantic 數據模型
-│   │       └── chat.py      # 聊天相關模型
-│   ├── requirements.txt     # Python 依賴
-│   └── run.py              # 啟動腳本
-│
-├── public/                  # 靜態資源
-├── package.json            # 前端依賴配置
-├── tsconfig.json           # TypeScript 配置
-├── tailwind.config.ts      # TailwindCSS 配置
-├── vite.config.ts          # Vite 配置
-└── README.md               # 專案說明文件
+�u�w�w src/                      # Frontend source code
+�x   �u�w�w components/           # React components
+�x   �x   �u�w�w Hero.tsx         # Hero section
+�x   �x   �u�w�w Header.tsx       # Header navigation
+�x   �x   �u�w�w Footer.tsx       # Footer
+�x   �x   �u�w�w FloatingButtons.tsx  # AI assistant floating button
+�x   �x   �|�w�w ui/              # Shadcn UI components
+�x   �u�w�w pages/               # Page components
+�x   �x   �u�w�w Index.tsx        # Home page
+�x   �x   �u�w�w Farmland.tsx     # Farmland list
+�x   �x   �u�w�w Member.tsx       # Member center
+�x   �x   �|�w�w Forum.tsx        # Discussion forum
+�x   �u�w�w App.tsx              # Application entry point
+�x   �|�w�w main.tsx             # React entry point
+�x
+�u�w�w backend/                  # Backend source code
+�x   �u�w�w app/
+�x   �x   �u�w�w main.py          # FastAPI main application
+�x   �x   �u�w�w config.py        # Configuration management
+�x   �x   �u�w�w api/             # API routes
+�x   �x   �x   �|�w�w routes/
+�x   �x   �x       �|�w�w chat.py  # AI chat API
+�x   �x   �u�w�w services/        # Business logic
+�x   �x   �x   �|�w�w ollama.py    # Ollama service integration
+�x   �x   �|�w�w schemas/         # Pydantic data models
+�x   �x       �|�w�w chat.py      # Chat-related models
+�x   �u�w�w requirements.txt     # Python dependencies
+�x   �|�w�w run.py              # Startup script
+�x
+�u�w�w public/                  # Static assets
+�u�w�w package.json            # Frontend dependencies configuration
+�u�w�w tsconfig.json           # TypeScript configuration
+�u�w�w tailwind.config.ts      # TailwindCSS configuration
+�u�w�w vite.config.ts          # Vite configuration
+�|�w�w README.md               # Project documentation
 ```
 
 ---
 
-## 團隊
+## Team
 
-- **開發者**: [@mato1321](https://github.com/mato1321)
+- **Developer**: [@mato1321](https://github.com/mato1321)
 
 ---
 
-## 聯絡我們
+## Contact Us
 
-如有任何問題或建議，歡迎透過以下方式聯絡：
+If you have any questions or suggestions, feel free to reach out:
 
-- GitHub Issues: [提交問題](https://github.com/mato1321/Farmio/issues)
+- GitHub Issues: [Submit an Issue](https://github.com/mato1321/Farmio/issues)
 - Email: charleskao811@gmail.com
 
 ---
 
 <div align="center">
 
-**Made with ❤️ by Farmio Team**
+**Made with ?? by Farmio Team**
 
 </div>
