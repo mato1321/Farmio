@@ -27,18 +27,31 @@ const Hero = () => {
         </h1>
         
         <p className="text-lg md:text-xl text-white mb-8 drop-shadow-xl max-w-2xl mx-auto" style={{ textShadow: '1px 1px 6px rgba(0,0,0,0.8)' }}>
-          我們結合經濟AI，讓農地能夠被更有效率的使用，幫助農民朋友們提升生產力，同時促進農業資源的永續發展。
+          我們結合經濟與AI，讓農地能夠被更有效率的使用，幫助農民朋友們提升生產力，同時促進農業資源的永續發展。
         </p>
         
-        <Button 
-          variant="default" 
-          size="lg" 
-          className="text-xl px-40 py-8 shadow-xl bg-amber-300 hover:bg-amber-400 text-gray-800 min-w-[300px]"
-          onClick={() => navigate('/farmland')}
-        >
-          我要耕地
-          <ArrowRight className="ml-2 w-5 h-5" />
-        </Button>
+        {/* 按鈕區域 */}
+        <div className="flex flex-col gap-4 items-center">
+          <Button 
+            variant="default" 
+            size="lg" 
+            className="text-xl px-40 py-8 shadow-xl bg-amber-300 hover:bg-amber-400 text-gray-800 min-w-[300px]"
+            onClick={() => navigate('/farmland')}
+          >
+            我要租地
+            <ArrowRight className="ml-2 w-5 h-5" />
+          </Button>
+          
+          <Button 
+            variant="default" 
+            size="lg" 
+            className="text-xl px-40 py-8 shadow-xl bg-amber-300 hover:bg-amber-400 text-gray-800 min-w-[300px]"
+            onClick={() => navigate('/lease')}
+          >
+            我要出租
+            <ArrowRight className="ml-2 w-5 h-5" />
+          </Button>
+        </div>
       </div>
     </section>
   );
