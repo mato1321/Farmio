@@ -1,7 +1,7 @@
 <div align="center">
 
 <h1>
-  <img src="./frontend/public/logo.ico" alt="Farmio Logo" width="60" height="60" style="vertical-align: middle;"/>
+  <img src="./frontend/public/logo.ico" alt="Farmio Logo" width="40" height="40" style="vertical-align: middle;"/>
   Farmio
 </h1>
 
