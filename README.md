@@ -4,7 +4,7 @@
 
 <br/>
 
-[![Python](https://img.shields.io/badge/Python-?3.11-3776AB.svg?logo=python)](https://www.python.org/)
+[![Python](https://img.shields.io/badge/Python-â‰¥3.11-3776AB.svg?logo=python)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.104.1-009688.svg?logo=fastapi)](https://fastapi.tiangolo.com/)
 [![React](https://img.shields.io/badge/React-18.3.1-61DAFB.svg?logo=react)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8.3-3178C6.svg?logo=typescript)](https://www.typescriptlang.org/)
@@ -160,41 +160,41 @@ uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 
 ```
 Farmio/
-¢u¢w¢w src/                      # Frontend source code
-¢x   ¢u¢w¢w components/           # React components
-¢x   ¢x   ¢u¢w¢w Hero.tsx         # Hero section
-¢x   ¢x   ¢u¢w¢w Header.tsx       # Header navigation
-¢x   ¢x   ¢u¢w¢w Footer.tsx       # Footer
-¢x   ¢x   ¢u¢w¢w FloatingButtons.tsx  # AI assistant floating button
-¢x   ¢x   ¢|¢w¢w ui/              # Shadcn UI components
-¢x   ¢u¢w¢w pages/               # Page components
-¢x   ¢x   ¢u¢w¢w Index.tsx        # Home page
-¢x   ¢x   ¢u¢w¢w Farmland.tsx     # Farmland list
-¢x   ¢x   ¢u¢w¢w Member.tsx       # Member center
-¢x   ¢x   ¢|¢w¢w Forum.tsx        # Discussion forum
-¢x   ¢u¢w¢w App.tsx              # Application entry point
-¢x   ¢|¢w¢w main.tsx             # React entry point
-¢x
-¢u¢w¢w backend/                  # Backend source code
-¢x   ¢u¢w¢w app/
-¢x   ¢x   ¢u¢w¢w main.py          # FastAPI main application
-¢x   ¢x   ¢u¢w¢w config.py        # Configuration management
-¢x   ¢x   ¢u¢w¢w api/             # API routes
-¢x   ¢x   ¢x   ¢|¢w¢w routes/
-¢x   ¢x   ¢x       ¢|¢w¢w chat.py  # AI chat API
-¢x   ¢x   ¢u¢w¢w services/        # Business logic
-¢x   ¢x   ¢x   ¢|¢w¢w ollama.py    # Ollama service integration
-¢x   ¢x   ¢|¢w¢w schemas/         # Pydantic data models
-¢x   ¢x       ¢|¢w¢w chat.py      # Chat-related models
-¢x   ¢u¢w¢w requirements.txt     # Python dependencies
-¢x   ¢|¢w¢w run.py              # Startup script
-¢x
-¢u¢w¢w public/                  # Static assets
-¢u¢w¢w package.json            # Frontend dependencies configuration
-¢u¢w¢w tsconfig.json           # TypeScript configuration
-¢u¢w¢w tailwind.config.ts      # TailwindCSS configuration
-¢u¢w¢w vite.config.ts          # Vite configuration
-¢|¢w¢w README.md               # Project documentation
+â”œâ”€â”€ src/                      # Frontend source code
+â”‚   â”œâ”€â”€ components/           # React components
+â”‚   â”‚   â”œâ”€â”€ Hero.tsx         # Hero section
+â”‚   â”‚   â”œâ”€â”€ Header.tsx       # Header navigation
+â”‚   â”‚   â”œâ”€â”€ Footer.tsx       # Footer
+â”‚   â”‚   â”œâ”€â”€ FloatingButtons.tsx  # AI assistant floating button
+â”‚   â”‚   â””â”€â”€ ui/              # Shadcn UI components
+â”‚   â”œâ”€â”€ pages/               # Page components
+â”‚   â”‚   â”œâ”€â”€ Index.tsx        # Home page
+â”‚   â”‚   â”œâ”€â”€ Farmland.tsx     # Farmland list
+â”‚   â”‚   â”œâ”€â”€ Member.tsx       # Member center
+â”‚   â”‚   â””â”€â”€ Forum.tsx        # Discussion forum
+â”‚   â”œâ”€â”€ App.tsx              # Application entry point
+â”‚   â””â”€â”€ main.tsx             # React entry point
+â”‚
+â”œâ”€â”€ backend/                  # Backend source code
+â”‚   â”œâ”€â”€ app/
+â”‚   â”‚   â”œâ”€â”€ main.py          # FastAPI main application
+â”‚   â”‚   â”œâ”€â”€ config.py        # Configuration management
+â”‚   â”‚   â”œâ”€â”€ api/             # API routes
+â”‚   â”‚   â”‚   â””â”€â”€ routes/
+â”‚   â”‚   â”‚       â””â”€â”€ chat.py  # AI chat API
+â”‚   â”‚   â”œâ”€â”€ services/        # Business logic
+â”‚   â”‚   â”‚   â””â”€â”€ ollama.py    # Ollama service integration
+â”‚   â”‚   â””â”€â”€ schemas/         # Pydantic data models
+â”‚   â”‚       â””â”€â”€ chat.py      # Chat-related models
+â”‚   â”œâ”€â”€ requirements.txt     # Python dependencies
+â”‚   â””â”€â”€ run.py              # Startup script
+â”‚
+â”œâ”€â”€ public/                  # Static assets
+â”œâ”€â”€ package.json            # Frontend dependencies configuration
+â”œâ”€â”€ tsconfig.json           # TypeScript configuration
+â”œâ”€â”€ tailwind.config.ts      # TailwindCSS configuration
+â”œâ”€â”€ vite.config.ts          # Vite configuration
+â””â”€â”€ README.md               # Project documentation
 ```
 
 ---
@@ -216,6 +216,6 @@ If you have any questions or suggestions, feel free to reach out:
 
 <div align="center">
 
-**Made with ?? by Farmio Team**
+**Made with â¤ï¸ by Farmio Team**
 
 </div>
