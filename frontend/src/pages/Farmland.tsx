@@ -56,7 +56,6 @@ const Farmland = () => {
 
   const handleSubmit = (data: any) => {
     console.log('收到的表單資料:', data);
-    // TODO: 發送到後端 API
     alert('表單已送出！我們會盡快審核您的農地資訊。');
     setIsModalOpen(false);
   };
@@ -80,6 +79,7 @@ const Farmland = () => {
                 size="lg"
                 onClick={() => setIsModalOpen(true)}
                 className="gap-2"
+                type="button"
               >
                 <Plus className="w-5 h-5" />
                 我要出租

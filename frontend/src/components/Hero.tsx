@@ -1,9 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import RentLandModal from "@/components/RentLandModal";
 
 const Hero = () => {
   const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleSubmit = (data: any) => {
+    console.log('收到的表單資料:', data);
+    alert('表單已送出！我們會盡快審核您的農地資訊。');
+    setIsModalOpen(false);
+  };
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -46,13 +55,20 @@ const Hero = () => {
             variant="default" 
             size="lg" 
             className="text-xl px-40 py-8 shadow-xl bg-amber-300 hover:bg-amber-400 text-gray-800 min-w-[300px]"
-            onClick={() => navigate('/lease')}
+            onClick={() => setIsModalOpen(true)}
           >
             我要出租
             <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
         </div>
       </div>
+
+      {/* 彈出視窗元件 */}
+      <RentLandModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSubmit={handleSubmit}
+      />
     </section>
   );
 };
