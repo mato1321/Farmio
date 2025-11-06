@@ -12,7 +12,7 @@ class OllamaService:
     
     async def generate_response(self, prompt: str, history: List[Dict] = None) -> str:
         """
-        使用 Ollama 生成回應
+        使用 Ollama 生成回應（GPU 優化版本）
         
         Args:
             prompt: 用戶問題
@@ -25,7 +25,8 @@ class OllamaService:
             # 構建完整的提示詞（包含歷史對話）
             full_prompt = self._build_prompt(prompt, history)
             
-            async with httpx.AsyncClient(timeout=60.0) as client:
+            # GPU 優化：增加超時時間，但實際上 GPU 會很快
+            async with httpx.AsyncClient(timeout=120.0) as client:
                 response = await client.post(
                     f"{self.base_url}/api/generate",
                     json={
@@ -35,6 +36,11 @@ class OllamaService:
                         "options": {
                             "temperature": 0.7,
                             "top_p": 0.9,
+                            "num_predict": 256,      # 限制最大生成長度
+                            "num_ctx": 2048,         # 上下文窗口（適合 RTX 3050）
+                            "num_gpu": 1,            # 使用 1 個 GPU
+                            "num_thread": 8,         # CPU 線程數
+                            "repeat_penalty": 1.1,   # 重複懲罰
                         }
                     }
                 )
@@ -55,7 +61,7 @@ class OllamaService:
     
     def _build_prompt(self, prompt: str, history: List[Dict] = None) -> str:
         """
-        構建包含歷史對話的完整提示詞
+        構建包含歷史對話的完整提示詞（優化版本）
         
         Args:
             prompt: 當前用戶問題
@@ -68,14 +74,15 @@ class OllamaService:
 你的任務是幫助農民和農業從業者解決各種農業相關問題。
 請用繁體中文回答，保持專業、友善且實用的態度。
 重點關注：農地管理、作物種植、農具使用、農業技術等主題。
+請保持回答簡潔明確，控制在 200 字以內。
 """
         
         if not history or len(history) == 0:
             return f"{system_message}\n\n用戶問題：{prompt}\n\nAI 回覆："
         
-        # 構建對話歷史
+        # 構建對話歷史（只保留最近 3 輪，減少 GPU 記憶體使用）
         conversation = system_message + "\n\n"
-        for msg in history[-5:]:  # 只保留最近 5 輪對話
+        for msg in history[-3:]:  # 改為 3 輪對話
             if msg.get("type") == "user":
                 conversation += f"用戶：{msg.get('text')}\n"
             elif msg.get("type") == "bot":

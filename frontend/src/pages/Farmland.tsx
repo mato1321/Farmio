@@ -1,12 +1,16 @@
+import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingButtons from "@/components/FloatingButtons";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { MapPin, TrendingUp, Droplets } from "lucide-react";
+import { MapPin, TrendingUp, Droplets, Plus } from "lucide-react";
+import RentLandModal from "@/components/RentLandModal";
 
 const Farmland = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const farmlands = [
     {
       id: 1,
@@ -50,17 +54,36 @@ const Farmland = () => {
     }
   ];
 
+  const handleSubmit = (data: any) => {
+    console.log('收到的表單資料:', data);
+    // TODO: 發送到後端 API
+    alert('表單已送出！我們會盡快審核您的農地資訊。');
+    setIsModalOpen(false);
+  };
+
   return (
     <div className="min-h-screen">
       <Header />
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="mb-12">
-              <h1 className="text-4xl font-bold mb-4">租用土地</h1>
-              <p className="text-lg text-muted-foreground">
-                探索優質農地，開啟您的農業夢想
-              </p>
+            <div className="mb-12 flex items-center justify-between">
+              <div>
+                <h1 className="text-4xl font-bold mb-4">租用土地</h1>
+                <p className="text-lg text-muted-foreground">
+                  探索優質農地，開啟您的農業夢想
+                </p>
+              </div>
+              
+              {/* 我要出租按鈕 */}
+              <Button 
+                size="lg"
+                onClick={() => setIsModalOpen(true)}
+                className="gap-2"
+              >
+                <Plus className="w-5 h-5" />
+                我要出租
+              </Button>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
@@ -118,6 +141,14 @@ const Farmland = () => {
           </div>
         </div>
       </main>
+      
+      {/* 彈出視窗元件 */}
+      <RentLandModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSubmit={handleSubmit}
+      />
+      
       <Footer />
       <FloatingButtons />
     </div>
