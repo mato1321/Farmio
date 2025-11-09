@@ -15,18 +15,13 @@ const Enterprise = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <Building2 className="w-16 h-16 mx-auto mb-4 text-primary" />
               <h1 className="text-4xl font-bold mb-4">企業合作資訊</h1>
-              <p className="text-lg text-muted-foreground">
-                攜手合作，共創農業新未來
-              </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <Handshake className="w-5 h-5" />
                     合作方案
                   </CardTitle>
                 </CardHeader>
@@ -35,7 +30,7 @@ const Enterprise = () => {
                     <div className="border-l-4 border-primary pl-4">
                       <h3 className="font-semibold mb-2">企業包場方案</h3>
                       <p className="text-sm text-muted-foreground">
-                        提供企業大面積農地租用，可用於團隊建設、CSR 活動或員工福利。
+                        提供企業大面積農地租用，可用於團隊建設或是員工福利。
                       </p>
                     </div>
                     <div className="border-l-4 border-primary pl-4">
@@ -63,7 +58,6 @@ const Enterprise = () => {
                     <Building2 className="w-5 h-5 text-muted-foreground mt-1" />
                     <div>
                       <p className="font-medium">Farmio 農地租借平台</p>
-                      <p className="text-sm text-muted-foreground">綠蔥股份有限公司</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
@@ -71,7 +65,7 @@ const Enterprise = () => {
                     <div>
                       <p className="font-medium">公司地址</p>
                       <p className="text-sm text-muted-foreground">
-                        台北市信義區信義路五段7號
+                        100 臺北市中正區貴陽街一段56號
                       </p>
                     </div>
                   </div>
@@ -79,7 +73,7 @@ const Enterprise = () => {
                     <Phone className="w-5 h-5 text-muted-foreground mt-1" />
                     <div>
                       <p className="font-medium">聯絡電話</p>
-                      <p className="text-sm text-muted-foreground">02-2345-6789</p>
+                      <p className="text-sm text-muted-foreground">02-2371-2482 </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
@@ -87,7 +81,7 @@ const Enterprise = () => {
                     <div>
                       <p className="font-medium">電子郵件</p>
                       <p className="text-sm text-muted-foreground">
-                        enterprise@farmio.com
+                        charleskao811@gmail.com
                       </p>
                     </div>
                   </div>

@@ -215,7 +215,7 @@ const RentLandModal: React.FC<RentLandModalProps> = ({ isOpen, onClose, onSubmit
 
             <div className="space-y-2">
               <Label htmlFor="landNumber">
-                地段 / 地號 <span className="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded">填寫可獲驗證標章</span>
+                地段 / 地號 <span className="text-xs bg-white-100 text-white-800 px-2 py-1 rounded"></span>
               </Label>
               <Input
                 id="landNumber"
@@ -452,7 +452,7 @@ const RentLandModal: React.FC<RentLandModalProps> = ({ isOpen, onClose, onSubmit
                   <SelectItem value="不清楚">不清楚</SelectItem>
                 </SelectContent>
               </Select>
-              <p className="text-sm text-muted-foreground">? 這對許多農民很重要，牽涉到休耕補助</p>
+              <p className="text-sm text-muted-foreground"></p>
             </div>
 
             <div className="space-y-2">
@@ -478,16 +478,7 @@ const RentLandModal: React.FC<RentLandModalProps> = ({ isOpen, onClose, onSubmit
               </div>
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="additionalNotes">補充說明</Label>
-              <Textarea
-                id="additionalNotes"
-                rows={4}
-                placeholder="請描述您的農地特色、優點，或任何您想讓承租者知道的資訊..."
-                value={formData.additionalNotes}
-                onChange={(e) => handleChange('additionalNotes', e.target.value)}
-              />
-            </div>
+            
           </div>
         );
 
@@ -561,7 +552,7 @@ const RentLandModal: React.FC<RentLandModalProps> = ({ isOpen, onClose, onSubmit
                   required
                   className="cursor-pointer"
                 />
-                <p className="text-sm text-muted-foreground mt-2">? 上傳一張最能代表您農地的照片</p>
+                <p className="text-sm text-muted-foreground mt-2"></p>
               </div>
             </div>
 
@@ -575,13 +566,13 @@ const RentLandModal: React.FC<RentLandModalProps> = ({ isOpen, onClose, onSubmit
                   multiple
                   className="cursor-pointer"
                 />
-                <p className="text-sm text-muted-foreground mt-2">?? 包含全景、水源、電力、道路、地上物等</p>
+                <p className="text-sm text-muted-foreground mt-2"></p>
               </div>
             </div>
 
             <div className="space-y-2">
               <Label htmlFor="documents">
-                地籍圖 / 權狀 <span className="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded">上傳後獲驗證標章</span>
+                地籍圖 / 權狀 <span className="text-xs bg-white-100 text-white-800 px-2 py-1 rounded"></span>
               </Label>
               <div className="border-2 border-dashed rounded-lg p-6 text-center hover:border-green-500 transition-colors">
                 <Input
@@ -591,7 +582,7 @@ const RentLandModal: React.FC<RentLandModalProps> = ({ isOpen, onClose, onSubmit
                   multiple
                   className="cursor-pointer"
                 />
-                <p className="text-sm text-muted-foreground mt-2">? 提高可信度（選填）</p>
+                <p className="text-sm text-muted-foreground mt-2"></p>
               </div>
             </div>
           </div>
@@ -613,7 +604,7 @@ const RentLandModal: React.FC<RentLandModalProps> = ({ isOpen, onClose, onSubmit
       >
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b">
-          <h2 className="text-2xl font-bold">? 我要出租農地</h2>
+          <h2 className="text-2xl font-bold">我要出租農地</h2>
           <Button variant="ghost" size="icon" onClick={onClose}>
             <X className="w-5 h-5" />
           </Button>
@@ -649,7 +640,7 @@ const RentLandModal: React.FC<RentLandModalProps> = ({ isOpen, onClose, onSubmit
             </Button>
           ) : (
             <Button type="submit" className="bg-blue-600 hover:bg-blue-700">
-              ? 送出刊登
+              送出刊登
             </Button>
           )}
         </div>
