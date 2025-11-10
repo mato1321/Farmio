@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingButtons from "@/components/FloatingButtons";
@@ -6,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { MessageSquare, ThumbsUp, MessageCircle } from "lucide-react";
 
 const Forum = () => {
+  const navigate = useNavigate();
+
   const posts = [
     {
       id: 1,
@@ -55,7 +58,11 @@ const Forum = () => {
 
             <div className="space-y-4">
               {posts.map((post) => (
-                <Card key={post.id} className="hover:shadow-lg transition-shadow cursor-pointer">
+                <Card 
+                  key={post.id} 
+                  className="hover:shadow-lg transition-shadow cursor-pointer"
+                  onClick={() => navigate(`/forum/${post.id}`)}
+                >
                   <CardHeader>
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
