@@ -51,23 +51,25 @@ Farmio is an innovative agricultural land rental platform that enhances farmland
 ### Frontend Technologies
 
 ```
-TypeScript      - Type Safety
-React           - UI Framework
-Vite            - Build Tool
-TailwindCSS     - CSS Framework
-Shadcn/UI       - Component Library
-React Router    - Routing Management
-React Query     - Data State Management
-Lucide React    - Icon Library
+TypeScript      - Type Safety & Enhanced Development Experience
+React 18        - UI Framework with Modern Hooks
+Vite            - Lightning-fast Build Tool & Dev Server
+TailwindCSS     - Utility-first CSS Framework
+Shadcn/UI       - High-quality Accessible Component Library
+Radix UI        - Headless UI Components Foundation
+React Router    - Client-side Routing Management
+Lucide React    - Beautiful & Consistent Icon Library
+Leaflet         - Interactive Map Integration
 ```
 
 ### Backend Technologies
 
 ```
-Python          - Programming Language
-FastAPI         - Web Framework
+Python 3.11+    - Programming Language
+FastAPI         - Modern High-performance Web Framework
 Uvicorn         - ASGI Server
-Pydantic        - Data Validation
+SQLAlchemy      - SQL ORM (Object-Relational Mapping)
+Pydantic        - Data Validation & Settings Management
 HTTPX           - Async HTTP Client
 Python-dotenv   - Environment Variable Management
 ```
@@ -79,7 +81,32 @@ Ollama          - Local LLM Runtime Environment
 Qwen2:latest    - Alibaba Qwen Large Language Model
 ```
 
----
+### Third-party Integrations
+
+```
+Microsoft Forms - Enterprise Consultation Forms
+Power Automate  - Automated Email Notifications
+OpenStreetMap   - Free Map Tile Service
+DiceBear API    - Avatar Generation Service
+```
+
+### Data Storage
+
+```
+LocalStorage    - Browser-based Local Data Storage (Forum)
+SQLite/PostgreSQL - Relational Database (Backend)
+```
+
+### Development Tools
+
+```
+Git & GitHub    - Version Control & Code Hosting
+npm/pnpm        - Node.js Package Manager
+ESLint          - Code Quality & Linting
+Prettier        - Code Formatting
+Chrome DevTools - Browser Development Tools
+React DevTools  - React Debugging Extension
+```
 
 ## Quick Start
 

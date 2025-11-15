@@ -48,26 +48,28 @@ Farmio是一個創新的農地租用平台，透過創新的租地方式與AI技
 
 ## 技術架構
 
-### 前端技術棧
+### 前端技術
 
 ```
-TypeScript      - 類型安全
-React           - UI 框架
-Vite            - 構建工具
-TailwindCSS     - 樣式框架
-Shadcn/UI       - 元件庫
-React Router    - 路由管理
-React Query     - 數據狀態管理
-Lucide React    - 圖標庫
+TypeScript      - 型別安全與增強開發體驗
+React 18        - 現代化 UI 框架
+Vite            - 極速建置工具與開發伺服器
+TailwindCSS     - Utility-first CSS 框架
+Shadcn/UI       - 高品質無障礙元件庫
+Radix UI        - Headless UI 元件基礎
+React Router    - 客戶端路由管理
+Lucide React    - 優美一致的圖示庫
+Leaflet         - 互動式地圖整合
 ```
 
-### 後端技術棧
+### 後端技術
 
 ```
-Python          - 程式語言
-FastAPI         - Web 框架
-Uvicorn         - ASGI 服務器
-Pydantic        - 數據驗證
+Python 3.11+    - 程式語言
+FastAPI         - 現代高效能 Web 框架
+Uvicorn         - ASGI 伺服器
+SQLAlchemy      - SQL ORM（物件關聯映射）
+Pydantic        - 資料驗證與設定管理
 HTTPX           - 非同步 HTTP 客戶端
 Python-dotenv   - 環境變數管理
 ```
@@ -79,7 +81,32 @@ Ollama          - 本地 LLM 運行環境
 Qwen2:latest    - 阿里巴巴千問大語言模型
 ```
 
----
+### 第三方整合服務
+
+```
+Microsoft Forms - 企業合作諮詢表單
+Power Automate  - 自動化郵件通知
+OpenStreetMap   - 免費地圖圖資服務
+DiceBear API    - 頭像生成服務
+```
+
+### 資料儲存
+
+```
+LocalStorage    - 瀏覽器本地資料儲存（討論區）
+SQLite/PostgreSQL - 關聯式資料庫（後端）
+```
+
+### 開發工具
+
+```
+Git & GitHub    - 版本控制與程式碼託管
+npm/pnpm        - Node.js 套件管理器
+ESLint          - 程式碼品質檢查
+Prettier        - 程式碼格式化
+Chrome DevTools - 瀏覽器開發工具
+React DevTools  - React 除錯擴充功能
+```
 
 ## 快速開始
 
