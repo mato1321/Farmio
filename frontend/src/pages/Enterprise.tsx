@@ -3,9 +3,7 @@ import Footer from "@/components/Footer";
 import FloatingButtons from "@/components/FloatingButtons";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Building2, Mail, Phone, MapPin, Handshake } from "lucide-react";
+import { Building2, Mail, Phone, MapPin, ExternalLink } from "lucide-react";
 
 const Enterprise = () => {
   return (
@@ -16,6 +14,9 @@ const Enterprise = () => {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <h1 className="text-4xl font-bold mb-4">企業合作資訊</h1>
+              <p className="text-muted-foreground">
+                與 Farmio 攜手合作，共創農業新未來
+              </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 mb-12">
@@ -73,7 +74,9 @@ const Enterprise = () => {
                     <Phone className="w-5 h-5 text-muted-foreground mt-1" />
                     <div>
                       <p className="font-medium">聯絡電話</p>
-                      <p className="text-sm text-muted-foreground">02-2371-2482 </p>
+                      <p className="text-sm text-muted-foreground">
+                        02-2371-2482
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
@@ -92,53 +95,54 @@ const Enterprise = () => {
             <Card>
               <CardHeader>
                 <CardTitle>合作諮詢表單</CardTitle>
+                <p className="text-sm text-muted-foreground">
+                  填寫以下資訊，我們將在 24 小時內回覆您
+                </p>
               </CardHeader>
               <CardContent>
-                <form className="space-y-4">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="text-sm font-medium mb-2 block">
-                        公司名稱 *
-                      </label>
-                      <Input placeholder="請輸入公司名稱" />
-                    </div>
-                    <div>
-                      <label className="text-sm font-medium mb-2 block">
-                        聯絡人 *
-                      </label>
-                      <Input placeholder="請輸入聯絡人姓名" />
-                    </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="text-sm font-medium mb-2 block">
-                        聯絡電話 *
-                      </label>
-                      <Input placeholder="請輸入聯絡電話" />
-                    </div>
-                    <div>
-                      <label className="text-sm font-medium mb-2 block">
-                        電子郵件 *
-                      </label>
-                      <Input type="email" placeholder="請輸入電子郵件" />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="text-sm font-medium mb-2 block">
-                      合作需求 *
-                    </label>
-                    <Textarea
-                      placeholder="請簡述您的合作需求與想法..."
-                      className="min-h-[120px]"
+                <div className="w-full">
+                  <div 
+                    className="rounded-lg overflow-hidden border border-border"
+                    style={{ 
+                      position: 'relative',
+                      height: '800px',
+                      overflow: 'hidden'
+                    }}
+                  >
+                    <iframe 
+                      width="100%" 
+                      height="100%" 
+                      src="https://forms.office.com/Pages/ResponsePage.aspx?id=aUIlhtPkU0y8mGQHUlZtMWI77Tbe7oFBhppuvXOwa3FUMEhSM1NOSjNQNzgzMDNHUE1IQ01ISzg0QS4u&embed=true" 
+                      frameBorder="0" 
+                      marginWidth={0}
+                      marginHeight={0}
+                      style={{ 
+                        border: 'none',
+                        display: 'block',
+                        width: '100%',
+                        height: '100%'
+                      }}
+                      scrolling="yes"
+                      allowFullScreen
+                      title="Farmio 企業合作諮詢表單"
                     />
                   </div>
 
-                  <Button type="submit" size="lg" className="w-full">
-                    提交諮詢
-                  </Button>
-                </form>
+                  <div className="mt-6 text-center">
+                    <p className="text-sm text-muted-foreground mb-3">
+                      如果表單無法正常顯示，請點擊下方按鈕在新視窗開啟
+                    </p>
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      onClick={() => window.open('https://forms.office.com/Pages/ResponsePage.aspx?id=aUIlhtPkU0y8mGQHUlZtMWI77Tbe7oFBhppuvXOwa3FUMEhSM1NOSjNQNzgzMDNHUE1IQ01ISzg0QS4u', '_blank')}
+                      className="gap-2"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      在新視窗開啟表單
+                    </Button>
+                  </div>
+                </div>
               </CardContent>
             </Card>
           </div>

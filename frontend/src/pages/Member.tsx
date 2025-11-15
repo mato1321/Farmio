@@ -22,8 +22,7 @@ const Member = () => {
                       <div className="w-32 h-32 rounded-full bg-primary/10 mx-auto mb-4 flex items-center justify-center">
                         <User className="w-16 h-16 text-primary" />
                       </div>
-                      <h2 className="text-2xl font-bold mb-2">張小明</h2>
-                      <p className="text-muted-foreground mb-4">一般會員</p>
+                      <h2 className="text-2xl font-bold mb-4">高碩辰</h2>
                       <Button className="w-full">
                         <Edit className="w-4 h-4 mr-2" />
                         編輯個人資料
@@ -43,7 +42,7 @@ const Member = () => {
                       <Mail className="w-5 h-5 text-muted-foreground" />
                       <div>
                         <p className="text-sm text-muted-foreground">電子郵件</p>
-                        <p className="font-medium">zhang.xiaoming@example.com</p>
+                        <p className="font-medium">12156229@mss.scu.edu.tw</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-3">
@@ -57,7 +56,7 @@ const Member = () => {
                       <MapPin className="w-5 h-5 text-muted-foreground" />
                       <div>
                         <p className="text-sm text-muted-foreground">地址</p>
-                        <p className="font-medium">台灣台北市信義區</p>
+                        <p className="font-medium">100 臺北市中正區貴陽街一段56號</p>
                       </div>
                     </div>
                   </CardContent>

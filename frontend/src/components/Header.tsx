@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { LogIn } from "lucide-react";
+import { LogOut } from "lucide-react";
 import { Link } from "react-router-dom";
 
 interface HeaderProps {
@@ -37,8 +37,8 @@ const Header = ({ logoUrl }: HeaderProps) => {
             </nav>
             
             <Button variant="ghost" className="gap-2 bg-gray-100 hover:bg-gray-200">
-              <LogIn className="w-4 h-4" />
-              登入
+              <LogOut className="w-4 h-4" />
+              登出
             </Button>
           </div>
         </div>
