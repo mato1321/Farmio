@@ -28,7 +28,7 @@ const FloatingButtons = () => {
 
     try {
       console.log("發送請求到:", 'http://localhost:8000/api/chat/');
-      console.log("請求數據:", { message: currentInput, history: messages });
+      console.log("請求資料:", { message: currentInput, history: messages });
       
       const response = await fetch('http://localhost:8000/api/chat/', {
         method: 'POST',
@@ -51,7 +51,7 @@ const FloatingButtons = () => {
       }
 
       const data = await response.json();
-      console.log("收到數據:", data);
+      console.log("收到資料:", data);
       
       const botReply = {
         type: "bot",
