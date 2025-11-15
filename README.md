@@ -186,41 +186,72 @@ uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 
 ```
 Farmio/
-├── src/                      # Frontend source code
-│   ├── components/           # React components
-│   │   ├── Hero.tsx         # Hero section
-│   │   ├── Header.tsx       # Header navigation
-│   │   ├── Footer.tsx       # Footer
-│   │   ├── FloatingButtons.tsx  # AI assistant floating button
-│   │   └── ui/              # Shadcn UI components
-│   ├── pages/               # Page components
-│   │   ├── Index.tsx        # Home page
-│   │   ├── Farmland.tsx     # Farmland list
-│   │   ├── Member.tsx       # Member center
-│   │   └── Forum.tsx        # Discussion forum
-│   ├── App.tsx              # Application entry point
-│   └── main.tsx             # React entry point
+├── frontend/                    # Frontend Application
+│   ├── src/
+│   │   ├── components/          # React Components
+│   │   │   ├── Header.tsx       # Navigation Header
+│   │   │   ├── Footer.tsx       # Footer Component
+│   │   │   ├── Hero.tsx         # Hero Section
+│   │   │   ├── FloatingButtons.tsx  # AI Chat Floating Button
+│   │   │   └── ui/              # shadcn/ui Components
+│   │   │       ├── button.tsx
+│   │   │       ├── card.tsx
+│   │   │       ├── dialog.tsx
+│   │   │       ├── textarea.tsx
+│   │   │       ├── input.tsx
+│   │   │       ├── badge.tsx
+│   │   │       └── avatar.tsx
+│   │   │
+│   │   ├── pages/               # Page Components
+│   │   │   ├── Index.tsx        # Home Page (with Map)
+│   │   │   ├── Member.tsx       # Member Profile Page
+│   │   │   ├── Forum.tsx        # Discussion Forum List
+│   │   │   ├── ForumPost.tsx    # Forum Post Detail Page
+│   │   │   ├── Enterprise.tsx   # Enterprise Cooperation Page
+│   │   │   └── Knowledge.tsx    # Knowledge Base Page
+│   │   │
+│   │   ├── utils/               # Utility Functions
+│   │   │   └── forumStorage.ts  # Forum Data Management (LocalStorage)
+│   │   │
+│   │   ├── App.tsx              # Main Application Component
+│   │   ├── main.tsx             # React Entry Point
+│   │   └── index.css            # Global Styles
+│   │
+│   ├── public/                  # Static Assets
+│   │   └── logo.ico             # Favicon
+│   │
+│   ├── package.json             # Frontend Dependencies
+│   ├── tsconfig.json            # TypeScript Configuration
+│   ├── tailwind.config.ts       # TailwindCSS Configuration
+│   ├── vite.config.ts           # Vite Configuration
+│   └── components.json          # shadcn/ui Configuration
 │
-├── backend/                  # Backend source code
+├── backend/                     # Backend Application
 │   ├── app/
-│   │   ├── main.py          # FastAPI main application
-│   │   ├── config.py        # Configuration management
-│   │   ├── api/             # API routes
+│   │   ├── main.py              # FastAPI Main Application
+│   │   ├── config.py            # Configuration Management
+│   │   │
+│   │   ├── api/                 # API Routes
 │   │   │   └── routes/
-│   │   │       └── chat.py  # AI chat API
-│   │   ├── services/        # Business logic
-│   │   │   └── ollama.py    # Ollama service integration
-│   │   └── schemas/         # Pydantic data models
-│   │       └── chat.py      # Chat-related models
-│   ├── requirements.txt     # Python dependencies
-│   └── run.py              # Startup script
+│   │   │       └── chat.py      # AI Chat API Endpoints
+│   │   │
+│   │   ├── services/            # Business Logic Layer
+│   │   │   └── ollama.py        # Ollama Service Integration
+│   │   │
+│   │   ├── schemas/             # Pydantic Data Models
+│   │   │   └── chat.py          # Chat Request/Response Models
+│   │   │
+│   │   └── models/              # Database Models (Future)
+│   │       └── user.py          # User Model (Placeholder)
+│   │
+│   ├── venv/                    # Python Virtual Environment
+│   ├── requirements.txt         # Python Dependencies
+│   ├── .env.example             # Environment Variables Template
+│   └── run.py                   # Backend Startup Script
 │
-├── public/                  # Static assets
-├── package.json            # Frontend dependencies configuration
-├── tsconfig.json           # TypeScript configuration
-├── tailwind.config.ts      # TailwindCSS configuration
-├── vite.config.ts          # Vite configuration
-└── README.md               # Project documentation
+├── .gitignore                   # Git Ignore Rules
+├── README.md                    # Project Documentation
+└── package.json                 # Root Package Configuration
 ```
 
 ---

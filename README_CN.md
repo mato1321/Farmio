@@ -186,41 +186,72 @@ uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 
 ```
 Farmio/
-├── src/                      # 前端源碼
-│   ├── components/           # React 元件
-│   │   ├── Hero.tsx         # 主畫面英雄區塊
-│   │   ├── Header.tsx       # 頁首導航
-│   │   ├── Footer.tsx       # 頁尾
-│   │   ├── FloatingButtons.tsx  # AI 助手浮動按鈕
-│   │   └── ui/              # Shadcn UI 元件
-│   ├── pages/               # 頁面組件
-│   │   ├── Index.tsx        # 首頁
-│   │   ├── Farmland.tsx     # 農地列表
-│   │   ├── Member.tsx       # 會員中心
-│   │   └── Forum.tsx        # 討論區
-│   ├── App.tsx              # 應用主入口
-│   └── main.tsx             # React 入口
+├── frontend/                    # 前端應用程式
+│   ├── src/
+│   │   ├── components/          # React 元件
+│   │   │   ├── Header.tsx       # 導航列
+│   │   │   ├── Footer.tsx       # 頁尾元件
+│   │   │   ├── Hero.tsx         # 主畫面英雄區塊
+│   │   │   ├── FloatingButtons.tsx  # AI 聊天浮動按鈕
+│   │   │   └── ui/              # shadcn/ui 元件
+│   │   │       ├── button.tsx
+│   │   │       ├── card.tsx
+│   │   │       ├── dialog.tsx
+│   │   │       ├── textarea.tsx
+│   │   │       ├── input.tsx
+│   │   │       ├── badge.tsx
+│   │   │       └── avatar.tsx
+│   │   │
+│   │   ├── pages/               # 頁面元件
+│   │   │   ├── Index.tsx        # 首頁（含地圖）
+│   │   │   ├── Member.tsx       # 會員資料頁面
+│   │   │   ├── Forum.tsx        # 討論區列表
+│   │   │   ├── ForumPost.tsx    # 文章詳細頁面
+│   │   │   ├── Enterprise.tsx   # 企業合作頁面
+│   │   │   └── Knowledge.tsx    # 知識庫頁面
+│   │   │
+│   │   ├── utils/               # 工具函式
+│   │   │   └── forumStorage.ts  # 討論區資料管理（LocalStorage）
+│   │   │
+│   │   ├── App.tsx              # 主應用程式元件
+│   │   ├── main.tsx             # React 入口點
+│   │   └── index.css            # 全域樣式
+│   │
+│   ├── public/                  # 靜態資源
+│   │   └── logo.ico             # 網站圖示
+│   │
+│   ├── package.json             # 前端相依套件
+│   ├── tsconfig.json            # TypeScript 設定
+│   ├── tailwind.config.ts       # TailwindCSS 設定
+│   ├── vite.config.ts           # Vite 設定
+│   └── components.json          # shadcn/ui 設定
 │
-├── backend/                  # 後端源碼
+├── backend/                     # 後端應用程式
 │   ├── app/
-│   │   ├── main.py          # FastAPI 應用主程式
-│   │   ├── config.py        # 配置管理
-│   │   ├── api/             # API 路由
+│   │   ├── main.py              # FastAPI 主應用程式
+│   │   ├── config.py            # 設定管理
+│   │   │
+│   │   ├── api/                 # API 路由
 │   │   │   └── routes/
-│   │   │       └── chat.py  # AI 聊天 API
-│   │   ├── services/        # 業務邏輯
-│   │   │   └── ollama.py    # Ollama 服務整合
-│   │   └── schemas/         # Pydantic 數據模型
-│   │       └── chat.py      # 聊天相關模型
-│   ├── requirements.txt     # Python 依賴
-│   └── run.py              # 啟動腳本
+│   │   │       └── chat.py      # AI 聊天 API 端點
+│   │   │
+│   │   ├── services/            # 業務邏輯層
+│   │   │   └── ollama.py        # Ollama 服務整合
+│   │   │
+│   │   ├── schemas/             # Pydantic 資料模型
+│   │   │   └── chat.py          # 聊天請求/回應模型
+│   │   │
+│   │   └── models/              # 資料庫模型（未來使用）
+│   │       └── user.py          # 使用者模型（預留）
+│   │
+│   ├── venv/                    # Python 虛擬環境
+│   ├── requirements.txt         # Python 相依套件
+│   ├── .env.example             # 環境變數範本
+│   └── run.py                   # 後端啟動腳本
 │
-├── public/                  # 靜態資源
-├── package.json            # 前端依賴配置
-├── tsconfig.json           # TypeScript 配置
-├── tailwind.config.ts      # TailwindCSS 配置
-├── vite.config.ts          # Vite 配置
-└── README.md               # 專案說明文件
+├── .gitignore                   # Git 忽略規則
+├── README.md                    # 專案說明文件
+└── package.json                 # 根目錄套件設定
 ```
 
 ---
