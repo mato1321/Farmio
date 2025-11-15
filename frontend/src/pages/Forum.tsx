@@ -16,7 +16,7 @@ const Forum = () => {
       author: "農友小李",
       content: "最近嘗試了有機農法，想跟大家分享一些心得...",
       likes: 24,
-      comments: 8,
+      comments: 3,  // ✅ 改成 3（對應 ForumPost 的實際留言數）
       time: "2小時前"
     },
     {
@@ -25,7 +25,7 @@ const Forum = () => {
       author: "田園達人",
       content: "夏季來臨，分享一些適合這個季節種植的蔬菜...",
       likes: 35,
-      comments: 12,
+      comments: 0,  // ✅ 改成 0（目前沒有留言資料）
       time: "5小時前"
     },
     {
@@ -34,7 +34,7 @@ const Forum = () => {
       author: "新手農夫",
       content: "請問大家都用什麼樣的灌溉系統？想請教經驗...",
       likes: 18,
-      comments: 15,
+      comments: 0,  // ✅ 改成 0（目前沒有留言資料）
       time: "1天前"
     }
   ];
