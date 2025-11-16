@@ -2,9 +2,9 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from app.config import settings, CORS_ORIGINS
-from app.api.routes import chat
-from app.api.routes import rental  # 新增
-from app.database import init_db  # 新增
+from app.api.routes import chat, rental
+from app.api.routes import forum  # 新增
+from app.database import init_db
 import logging
 import os
 
@@ -16,8 +16,8 @@ logging.basicConfig(
 
 # 建立 FastAPI 應用
 app = FastAPI(
-    title="Farmio AI Chat API",
-    description="農地租用平台 AI 聊天服務",
+    title="Farmio API",
+    description="農地租用平台 API 服務",
     version="1.0.0",
     docs_url="/docs",
     redoc_url="/redoc"
@@ -34,9 +34,10 @@ app.add_middleware(
 
 # 註冊路由
 app.include_router(chat.router, prefix="/api", tags=["chat"])
-app.include_router(rental.router, prefix="/api", tags=["rental"])  # 新增
+app.include_router(rental.router, prefix="/api", tags=["rental"])
+app.include_router(forum.router, prefix="/api/forum", tags=["forum"])  # 新增
 
-# 提供靜態檔案存取（上傳的圖片）
+# 提供靜態檔案存取
 os.makedirs("uploads/rentals", exist_ok=True)
 app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
 

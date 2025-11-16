@@ -9,12 +9,14 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { MessageSquare, ThumbsUp, MessageCircle } from "lucide-react";
-import { getPosts, addPost, type Post } from "@/utils/forumStorage";
+import { getPosts, createPost, formatTimeAgo, type PostListItem } from "@/services/forumApi";
 
 const Forum = () => {
   const navigate = useNavigate();
-  const [posts, setPosts] = useState<Post[]>([]);
+  const [posts, setPosts] = useState<PostListItem[]>([]);
+  const [loading, setLoading] = useState(true);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [newPost, setNewPost] = useState({
     title: "",
     content: "",
@@ -24,31 +26,57 @@ const Forum = () => {
 
   // 載入文章
   useEffect(() => {
-    setPosts(getPosts());
+    loadPosts();
   }, []);
 
+  const loadPosts = async () => {
+    try {
+      setLoading(true);
+      const data = await getPosts();
+      setPosts(data);
+      console.log('✅ 載入文章成功:', data);
+    } catch (error) {
+      console.error('❌ 載入文章失敗:', error);
+      alert('載入文章失敗，請稍後再試');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   // 發表文章
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!newPost.title.trim() || !newPost.content.trim()) {
       alert("請填寫標題和內容");
       return;
     }
 
-    const post = addPost({
-      title: newPost.title,
-      content: newPost.content,
-      author: "高碩辰",
-      category: newPost.category,
-      tags: newPost.tags.split(",").map(tag => tag.trim()).filter(tag => tag),
-      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=kaoshuochen"
-    });
+    setIsSubmitting(true);
 
-    setPosts(getPosts());
-    setIsDialogOpen(false);
-    setNewPost({ title: "", content: "", category: "種植技術", tags: "" });
-    
-    // 導向到新文章
-    navigate(`/forum/${post.id}`);
+    try {
+      const post = await createPost({
+        title: newPost.title,
+        content: newPost.content,
+        author: "mato1321",  // 這裡用你的使用者名稱
+        category: newPost.category,
+        tags: newPost.tags.split(",").map(tag => tag.trim()).filter(tag => tag),
+      });
+
+      console.log('✅ 文章建立成功:', post);
+      
+      setIsDialogOpen(false);
+      setNewPost({ title: "", content: "", category: "種植技術", tags: "" });
+      
+      // 重新載入文章列表
+      await loadPosts();
+      
+      // 導向到新文章
+      navigate(`/forum/${post.id}`);
+    } catch (error: any) {
+      console.error('❌ 建立文章失敗:', error);
+      alert(`建立文章失敗：${error.message}`);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -66,9 +94,9 @@ const Forum = () => {
               {/* 發表文章對話框 */}
               <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                 <DialogTrigger asChild>
-                  <Button size="lg">
+                  <Button size="lg" disabled={isSubmitting}>
                     <MessageSquare className="w-4 h-4 mr-2" />
-                    發表文章
+                    {isSubmitting ? '發表中...' : '發表文章'}
                   </Button>
                 </DialogTrigger>
                 <DialogContent className="max-w-2xl">
@@ -116,11 +144,18 @@ const Forum = () => {
                       />
                     </div>
                     <div className="flex justify-end gap-3">
-                      <Button variant="outline" onClick={() => setIsDialogOpen(false)}>
+                      <Button 
+                        variant="outline" 
+                        onClick={() => setIsDialogOpen(false)}
+                        disabled={isSubmitting}
+                      >
                         取消
                       </Button>
-                      <Button onClick={handleSubmit}>
-                        發表文章
+                      <Button 
+                        onClick={handleSubmit}
+                        disabled={isSubmitting}
+                      >
+                        {isSubmitting ? '發表中...' : '發表文章'}
                       </Button>
                     </div>
                   </div>
@@ -129,47 +164,56 @@ const Forum = () => {
             </div>
 
             {/* 文章列表 */}
-            <div className="space-y-4">
-              {posts.length === 0 ? (
-                <Card>
-                  <CardContent className="py-12 text-center text-muted-foreground">
-                    目前還沒有文章，快來發表第一篇吧！
-                  </CardContent>
-                </Card>
-              ) : (
-                posts.map((post) => (
-                  <Card 
-                    key={post.id} 
-                    className="hover:shadow-lg transition-shadow cursor-pointer"
-                    onClick={() => navigate(`/forum/${post.id}`)}
-                  >
-                    <CardHeader>
-                      <div className="flex items-start justify-between">
-                        <div className="flex-1">
-                          <CardTitle className="text-xl mb-2">{post.title}</CardTitle>
-                          <p className="text-sm text-muted-foreground">
-                            {post.author} · {post.time}
-                          </p>
-                        </div>
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-foreground/80 mb-4 line-clamp-2">{post.content}</p>
-                      <div className="flex items-center gap-6 text-sm text-muted-foreground">
-                        <div className="flex items-center gap-2">
-                          <ThumbsUp className="w-4 h-4" />
-                          <span>{post.likes}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <MessageCircle className="w-4 h-4" />
-                          <span>{post.comments} 則留言</span>
-                        </div>
-                      </div>
+            {loading ? (
+              <div className="text-center py-12">
+                <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-green-600"></div>
+                <p className="mt-4 text-muted-foreground">載入中...</p>
+              </div>
+            ) : (
+              <div className="space-y-4">
+                {posts.length === 0 ? (
+                  <Card>
+                    <CardContent className="py-12 text-center text-muted-foreground">
+                      目前還沒有文章，快來發表第一篇吧！
                     </CardContent>
                   </Card>
-                ))
-              )}
-            </div>
+                ) : (
+                  posts.map((post) => (
+                    <Card 
+                      key={post.id} 
+                      className="hover:shadow-lg transition-shadow cursor-pointer"
+                      onClick={() => navigate(`/forum/${post.id}`)}
+                    >
+                      <CardHeader>
+                        <div className="flex items-start justify-between">
+                          <div className="flex-1">
+                            <CardTitle className="text-xl mb-2">{post.title}</CardTitle>
+                            <p className="text-sm text-muted-foreground">
+                              {post.author} · {formatTimeAgo(post.created_at)}
+                            </p>
+                          </div>
+                        </div>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-foreground/80 mb-4 line-clamp-2">
+                          {post.content_preview}
+                        </p>
+                        <div className="flex items-center gap-6 text-sm text-muted-foreground">
+                          <div className="flex items-center gap-2">
+                            <ThumbsUp className="w-4 h-4" />
+                            <span>{post.likes}</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <MessageCircle className="w-4 h-4" />
+                            <span>{post.comment_count} 則留言</span>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))
+                )}
+              </div>
+            )}
           </div>
         </div>
       </main>

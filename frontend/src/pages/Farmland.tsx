@@ -1,61 +1,83 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom"; // ✅ 新增
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingButtons from "@/components/FloatingButtons";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { MapPin, TrendingUp, Droplets, Plus } from "lucide-react";
+import { MapPin, Plus } from "lucide-react";
 import RentLandModal from "@/components/RentLandModal";
+import { getRentals, createRental } from "@/services/api";
+
+interface Rental {
+  id: number;
+  title: string;
+  contact_name: string;
+  county: string;
+  district: string;
+  area: string;
+  rent_amount: string;
+  zone_type: string;
+  land_status: string[];
+  cover_photo_path: string | null;
+  photos_paths: string[];
+  created_at: string;
+}
 
 const Farmland = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const navigate = useNavigate(); // ✅ 新增
+  const [farmlands, setFarmlands] = useState<Rental[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const navigate = useNavigate();
 
-  const farmlands = [
-    {
-      id: 1,
-      name: "宜蘭礁溪優質農地",
-      location: "宜蘭縣礁溪鄉",
-      area: 500,
-      price: 15000,
-      status: "可租用",
-      image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=400&h=300&fit=crop"
-    },
-    {
-      id: 2,
-      name: "台中后里平地農場",
-      location: "台中市后里區",
-      area: 800,
-      price: 20000,
-      status: "可租用",
-      image: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=400&h=300&fit=crop"
-    },
-    {
-      id: 3,
-      name: "苗栗三義山坡農地",
-      location: "苗栗縣三義鄉",
-      area: 1200,
-      price: 25000,
-      status: "已租用",
-      image: "https://images.unsplash.com/photo-1560493676-04071c5f467b?w=400&h=300&fit=crop"
-    },
-    {
-      id: 4,
-      name: "花蓮壽豐有機農場",
-      location: "花蓮縣壽豐鄉",
-      area: 600,
-      price: 18000,
-      status: "可租用",
-      image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400&h=300&fit=crop"
+  // 載入農地資料
+  useEffect(() => {
+    loadFarmlands();
+  }, []);
+
+  const loadFarmlands = async () => {
+    try {
+      setLoading(true);
+      const data = await getRentals();
+      setFarmlands(data);
+      console.log('✅ 載入農地資料成功:', data);
+    } catch (error) {
+      console.error('❌ 載入農地資料失敗:', error);
+      alert('載入資料失敗，請稍後再試');
+    } finally {
+      setLoading(false);
     }
-  ];
+  };
 
-  const handleSubmit = (data: any) => {
+  const handleSubmit = async (data: any) => {
     console.log('收到的表單資料:', data);
-    alert('表單已送出！我們會盡快審核您的農地資訊。');
-    setIsModalOpen(false);
+    
+    setIsSubmitting(true);
+    
+    try {
+      const result = await createRental(data);
+      console.log('提交成功，伺服器回應:', result);
+      alert(`✅ 表單已成功送出！\n\n租賃 ID: ${result.id}\n標題: ${result.title}\n\n我們會盡快審核您的農地資訊。`);
+      setIsModalOpen(false);
+      
+      // 重新載入農地列表
+      await loadFarmlands();
+    } catch (error: any) {
+      console.error('提交失敗:', error);
+      alert(`❌ 提交失敗：${error.message}\n\n請檢查：\n1. 後端是否正在運行\n2. 所有必填欄位是否都已填寫\n3. 檔案大小是否過大`);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  // 取得圖片 URL
+  const getImageUrl = (path: string | null) => {
+    if (!path) {
+      return "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=400&h=300&fit=crop";
+    }
+    return `http://localhost:8000/${path.replace(/\\/g, '/')}`;
   };
 
   return (
@@ -77,62 +99,100 @@ const Farmland = () => {
                 onClick={() => setIsModalOpen(true)}
                 className="gap-2"
                 type="button"
+                disabled={isSubmitting}
               >
                 <Plus className="w-5 h-5" />
-                我要出租
+                {isSubmitting ? '提交中...' : '我要出租'}
               </Button>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8">
-              {farmlands.map((land) => (
-                <Card key={land.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-                  <div className="aspect-video overflow-hidden">
-                    <img
-                      src={land.image}
-                      alt={land.name}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  <CardHeader>
-                    <div className="flex items-start justify-between">
-                      <CardTitle className="text-xl">{land.name}</CardTitle>
-                      <Badge variant={land.status === "可租用" ? "default" : "secondary"}>
-                        {land.status}
-                      </Badge>
+            {loading ? (
+              <div className="text-center py-12">
+                <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-green-600"></div>
+                <p className="mt-4 text-muted-foreground">載入中...</p>
+              </div>
+            ) : farmlands.length === 0 ? (
+              <div className="text-center py-12 bg-gray-50 rounded-lg">
+                <p className="text-xl text-muted-foreground mb-4">目前還沒有農地資料</p>
+                <Button onClick={() => setIsModalOpen(true)} className="gap-2">
+                  <Plus className="w-5 h-5" />
+                  成為第一個出租農地的人
+                </Button>
+              </div>
+            ) : (
+              <div className="grid md:grid-cols-2 gap-8">
+                {farmlands.map((land) => (
+                  <Card key={land.id} className="overflow-hidden hover:shadow-lg transition-shadow">
+                    <div className="aspect-video overflow-hidden">
+                      <img
+                        src={getImageUrl(land.cover_photo_path)}
+                        alt={land.title}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                        onError={(e) => {
+                          // 如果圖片載入失敗，使用預設圖片
+                          (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=400&h=300&fit=crop";
+                        }}
+                      />
                     </div>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-3 mb-4">
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <MapPin className="w-4 h-4" />
-                        {land.location}
+                    <CardHeader>
+                      <div className="flex items-start justify-between">
+                        <CardTitle className="text-xl">{land.title}</CardTitle>
+                        <Badge variant="default">可租用</Badge>
                       </div>
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        {land.area} 坪
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-3 mb-4">
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <MapPin className="w-4 h-4" />
+                          {land.county} {land.district}
+                        </div>
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <span className="font-semibold">面積:</span> {land.area} 坪
+                        </div>
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <span className="font-semibold">租金:</span> NT$ {parseInt(land.rent_amount).toLocaleString()} /年
+                        </div>
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <span className="font-semibold">分區:</span> {land.zone_type}
+                        </div>
+                        {land.land_status.length > 0 && (
+                          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                            <span className="font-semibold">現況:</span>
+                            <div className="flex gap-1 flex-wrap">
+                              {land.land_status.map((status, idx) => (
+                                <Badge key={idx} variant="outline" className="text-xs">
+                                  {status}
+                                </Badge>
+                              ))}
+                            </div>
+                          </div>
+                        )}
                       </div>
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        NT$ {land.price.toLocaleString()} /月
-                      </div>
-                    </div>
 
-                    <Button 
-                      className="w-full" 
-                      disabled={land.status === "已租用"}
-                      onClick={() => navigate(`/farmland/${land.id}`)} // ✅ 加入跳轉
-                    >
-                      {land.status === "可租用" ? "查看詳情" : "已租出"}
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+                      <Button 
+                        className="w-full" 
+                        onClick={() => navigate(`/farmland/${land.id}`)}
+                      >
+                        查看詳情
+                      </Button>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            )}
+
+            {!loading && farmlands.length > 0 && (
+              <div className="mt-8 text-center text-sm text-muted-foreground">
+                共 {farmlands.length} 筆農地資料
+              </div>
+            )}
           </div>
         </div>
       </main>
       
       <RentLandModal
         isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
+        onClose={() => !isSubmitting && setIsModalOpen(false)}
         onSubmit={handleSubmit}
       />
       
