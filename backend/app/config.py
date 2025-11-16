@@ -5,6 +5,7 @@ class Settings(BaseSettings):
     OLLAMA_MODEL: str = "qwen2:latest"
     API_HOST: str = "0.0.0.0"
     API_PORT: int = 8000
+    DATABASE_URL: str = "postgresql://username:password@localhost:5432/farmio_db"
     
     class Config:
         env_file = ".env"

@@ -87,6 +87,77 @@ const RentLandModal: React.FC<RentLandModalProps> = ({ isOpen, onClose, onSubmit
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    console.log('🎯 表單提交被觸發！');
+    console.log('📝 表單資料:', formData);
+    
+    // ===== 驗證所有必填欄位 =====
+    
+    // 第一部分：聯絡方式
+    if (!formData.contactName.trim()) {
+      alert('❌ 請填寫稱謂/姓名');
+      setCurrentStep(1);
+      return;
+    }
+    
+    if (!formData.contactPhone.trim()) {
+      alert('❌ 請填寫聯絡電話');
+      setCurrentStep(1);
+      return;
+    }
+    
+    // 第二部分：基本資訊
+    if (!formData.title.trim()) {
+      alert('❌ 請填寫物件標題');
+      setCurrentStep(2);
+      return;
+    }
+    
+    if (!formData.county) {
+      alert('❌ 請選擇縣市');
+      setCurrentStep(2);
+      return;
+    }
+    
+    if (!formData.district.trim()) {
+      alert('❌ 請填寫鄉鎮市區');
+      setCurrentStep(2);
+      return;
+    }
+    
+    if (!formData.area.trim()) {
+      alert('❌ 請填寫土地面積');
+      setCurrentStep(2);
+      return;
+    }
+    
+    if (!formData.rentAmount.trim()) {
+      alert('❌ 請填寫租金');
+      setCurrentStep(2);
+      return;
+    }
+    
+    // 第三部分：土地狀況
+    if (!formData.zoneType) {
+      alert('❌ 請選擇土地使用分區');
+      setCurrentStep(3);
+      return;
+    }
+    
+    if (formData.landStatus.length === 0) {
+      alert('❌ 請至少選擇一個土地現況');
+      setCurrentStep(3);
+      return;
+    }
+    
+    // 第四部分：照片上傳
+    if (!formData.coverPhoto) {
+      alert('❌ 請上傳封面照片');
+      setCurrentStep(4);
+      return;
+    }
+    
+    console.log('✅ 驗證通過，準備提交');
     onSubmit(formData);
   };
 
@@ -105,7 +176,6 @@ const RentLandModal: React.FC<RentLandModalProps> = ({ isOpen, onClose, onSubmit
                 placeholder="例如：陳先生、林小姐、XX農場"
                 value={formData.contactName}
                 onChange={(e) => handleChange('contactName', e.target.value)}
-                required
               />
               <p className="text-sm text-muted-foreground"></p>
             </div>
@@ -118,7 +188,6 @@ const RentLandModal: React.FC<RentLandModalProps> = ({ isOpen, onClose, onSubmit
                 placeholder="請輸入手機或市話"
                 value={formData.contactPhone}
                 onChange={(e) => handleChange('contactPhone', e.target.value)}
-                required
               />
               <p className="text-sm text-muted-foreground"></p>
             </div>
@@ -164,7 +233,6 @@ const RentLandModal: React.FC<RentLandModalProps> = ({ isOpen, onClose, onSubmit
                 placeholder="例如：宜蘭員山｜方正美田，臨路有水電，適合有機耕作"
                 value={formData.title}
                 onChange={(e) => handleChange('title', e.target.value)}
-                required
               />
               <p className="text-sm text-muted-foreground"></p>
             </div>
@@ -204,7 +272,6 @@ const RentLandModal: React.FC<RentLandModalProps> = ({ isOpen, onClose, onSubmit
                   placeholder="請輸入鄉鎮市區"
                   value={formData.district}
                   onChange={(e) => handleChange('district', e.target.value)}
-                  required
                 />
               </div>
             </div>
@@ -229,7 +296,6 @@ const RentLandModal: React.FC<RentLandModalProps> = ({ isOpen, onClose, onSubmit
                   placeholder="輸入面積"
                   value={formData.area}
                   onChange={(e) => handleChange('area', e.target.value)}
-                  required
                   className="flex-1"
                 />
                 <span className="flex items-center px-3 border rounded-md bg-gray-50">坪</span>
@@ -246,7 +312,6 @@ const RentLandModal: React.FC<RentLandModalProps> = ({ isOpen, onClose, onSubmit
                   placeholder="輸入金額"
                   value={formData.rentAmount}
                   onChange={(e) => handleChange('rentAmount', e.target.value)}
-                  required
                   className="flex-1"
                 />
                 <span className="flex items-center px-3 border rounded-md bg-gray-50">元/年</span>
@@ -312,11 +377,12 @@ const RentLandModal: React.FC<RentLandModalProps> = ({ isOpen, onClose, onSubmit
                   id="coverPhoto"
                   type="file"
                   accept="image/*"
-                  required
                   className="cursor-pointer"
                   onChange={(e) => handleChange('coverPhoto', e.target.files?.[0] || null)}
                 />
-                <p className="text-sm text-muted-foreground mt-2"></p>
+                <p className="text-sm text-muted-foreground mt-2">
+                  {formData.coverPhoto ? `✅ 已選擇: ${formData.coverPhoto.name}` : '請選擇一張封面照片'}
+                </p>
               </div>
             </div>
 
@@ -332,6 +398,7 @@ const RentLandModal: React.FC<RentLandModalProps> = ({ isOpen, onClose, onSubmit
                   onChange={(e) => handleChange('photos', e.target.files)}
                 />
                 <p className="text-sm text-muted-foreground mt-2">
+                  {formData.photos ? `✅ 已選擇 ${formData.photos.length} 張照片` : '請選擇農地照片（選填）'}
                 </p>
               </div>
             </div>
@@ -380,29 +447,48 @@ const RentLandModal: React.FC<RentLandModalProps> = ({ isOpen, onClose, onSubmit
           </span>
         </div>
 
-        {/* Content */}
-        <form onSubmit={handleSubmit} className="flex-1 overflow-y-auto p-6">
-          {renderStep()}
-        </form>
+        {/* Form - 包住 Content 和 Footer */}
+        <form onSubmit={handleSubmit} className="contents">
+          {/* Content */}
+          <div className="flex-1 overflow-y-auto p-6">
+            {renderStep()}
+          </div>
 
-        {/* Footer */}
-        <div className="flex items-center gap-3 p-6 border-t bg-gray-50">
-          {currentStep > 1 && (
-            <Button type="button" variant="outline" onClick={handlePrev}>
-              ← 上一步
-            </Button>
-          )}
-          <div className="flex-1" />
-          {currentStep < totalSteps ? (
-            <Button type="button" onClick={handleNext} className="bg-green-600 hover:bg-green-700">
-              下一步 →
-            </Button>
-          ) : (
-            <Button type="submit" className="bg-blue-600 hover:bg-blue-700">
-              送出刊登
-            </Button>
-          )}
-        </div>
+          {/* Footer */}
+          <div className="flex items-center gap-3 p-6 border-t bg-gray-50">
+            {currentStep > 1 && (
+              <Button 
+                type="button" 
+                variant="outline" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  handlePrev();
+                }}
+              >
+                ← 上一步
+              </Button>
+            )}
+            <div className="flex-1" />
+            {currentStep < totalSteps ? (
+              <Button 
+                type="button" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  handleNext();
+                }} 
+                className="bg-green-600 hover:bg-green-700"
+              >
+                下一步 →
+              </Button>
+            ) : (
+              <Button type="submit" className="bg-blue-600 hover:bg-blue-700">
+                送出刊登
+              </Button>
+            )}
+          </div>
+        </form>
       </div>
     </div>
   );

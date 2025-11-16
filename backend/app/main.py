@@ -1,8 +1,12 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from app.config import settings, CORS_ORIGINS
 from app.api.routes import chat
+from app.api.routes import rental  # 新增
+from app.database import init_db  # 新增
 import logging
+import os
 
 # 設定日誌
 logging.basicConfig(
@@ -19,42 +23,33 @@ app = FastAPI(
     redoc_url="/redoc"
 )
 
-# 設定 CORS - 更寬鬆的設定
+# 設定 CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # 暫時允許所有來源，方便測試
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
     allow_headers=["*"],
-    expose_headers=["*"],
-    max_age=3600,
 )
 
 # 註冊路由
-app.include_router(chat.router, prefix="/api")
+app.include_router(chat.router, prefix="/api", tags=["chat"])
+app.include_router(rental.router, prefix="/api", tags=["rental"])  # 新增
+
+# 提供靜態檔案存取（上傳的圖片）
+os.makedirs("uploads/rentals", exist_ok=True)
+app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
+
+@app.on_event("startup")
+async def startup_event():
+    """應用啟動時初始化資料庫"""
+    init_db()
+    logging.info("資料庫初始化完成")
 
 @app.get("/")
 async def root():
-    """根路徑"""
-    return {
-        "message": "歡迎使用 Farmio AI Chat API",
-        "docs": "/docs",
-        "health": "/api/chat/health"
-    }
+    return {"message": "Farmio API 運行中"}
 
 @app.get("/health")
-async def health():
-    """全域健康檢查"""
-    return {"status": "healthy", "service": "Farmio AI API"}
-
-# 添加全域異常處理
-from fastapi import Request
-from fastapi.responses import JSONResponse
-
-@app.exception_handler(Exception)
-async def global_exception_handler(request: Request, exc: Exception):
-    logging.error(f"全域錯誤: {str(exc)}")
-    return JSONResponse(
-        status_code=500,
-        content={"detail": "系統發生錯誤，請稍後再試"}
-    )
+async def health_check():
+    return {"status": "healthy"}

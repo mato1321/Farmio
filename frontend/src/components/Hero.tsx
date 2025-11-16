@@ -3,15 +3,29 @@ import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import RentLandModal from "@/components/RentLandModal";
+import { createRental } from "@/services/api";
 
 const Hero = () => {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (data: any) => {
-    console.log('收到的表單資料:', data);
-    alert('表單已送出！我們會盡快審核您的農地資訊。');
-    setIsModalOpen(false);
+  const handleSubmit = async (data: any) => {
+    console.log('準備提交的表單資料:', data);
+    
+    setIsSubmitting(true);
+    
+    try {
+      const result = await createRental(data);
+      console.log('提交成功，伺服器回應:', result);
+      alert(`✅ 表單已成功送出！\n\n租賃 ID: ${result.id}\n標題: ${result.title}\n\n我們會盡快審核您的農地資訊。`);
+      setIsModalOpen(false);
+    } catch (error: any) {
+      console.error('提交失敗:', error);
+      alert(`❌ 提交失敗：${error.message}\n\n請檢查：\n1. 後端是否正在運行\n2. 所有必填欄位是否都已填寫\n3. 檔案大小是否過大`);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -56,8 +70,9 @@ const Hero = () => {
             size="lg" 
             className="text-xl px-40 py-8 shadow-xl bg-amber-300 hover:bg-amber-400 text-gray-800 min-w-[300px]"
             onClick={() => setIsModalOpen(true)}
+            disabled={isSubmitting}
           >
-            我要出租
+            {isSubmitting ? '提交中...' : '我要出租'}
             <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
         </div>
@@ -66,7 +81,7 @@ const Hero = () => {
       {/* 彈出視窗元件 */}
       <RentLandModal
         isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
+        onClose={() => !isSubmitting && setIsModalOpen(false)}
         onSubmit={handleSubmit}
       />
     </section>
