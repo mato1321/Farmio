@@ -17,6 +17,71 @@ export interface RentLandFormData {
   photos: FileList | null;
 }
 
+// 新增：正規化後的資料結構
+export interface Contact {
+  id: number;
+  name: string;
+  phone: string;
+  email: string | null;
+  role: string;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface Location {
+  id: number;
+  county: string;
+  district: string;
+  address: string | null;
+  latitude: number | null;
+  longitude: number | null;
+}
+
+export interface RentalPhoto {
+  id: number;
+  rental_id: number;
+  photo_path: string;
+  is_cover: boolean;
+  sort_order: number;
+  created_at: string;
+}
+
+export interface RentalLandStatus {
+  id: number;
+  rental_id: number;
+  status: string;
+}
+
+export interface RentalDetail {
+  id: number;
+  title: string;
+  area: string;
+  zone_type: string;
+  rent_amount: string;
+  created_at: string;
+  updated_at: string;
+  contact: Contact;
+  location: Location;
+  photos: RentalPhoto[];
+  land_statuses: RentalLandStatus[];
+}
+
+// 列表用的簡化結構
+export interface RentalListItem {
+  id: number;
+  title: string;
+  contact_name: string;
+  county: string;
+  district: string;
+  area: string;
+  rent_amount: string;
+  zone_type: string;
+  land_status: string[];
+  cover_photo_path: string | null;
+  photos_paths: string[];
+  created_at: string;
+}
+
 export const createRental = async (formData: RentLandFormData) => {
   const formDataToSend = new FormData();
   
@@ -101,7 +166,7 @@ export const createRental = async (formData: RentLandFormData) => {
   }
 };
 
-export const getRentals = async () => {
+export const getRentals = async (): Promise<RentalListItem[]> => {
   try {
     const response = await fetch(`${API_BASE_URL}/rentals`);
     if (!response.ok) {
@@ -114,7 +179,7 @@ export const getRentals = async () => {
   }
 };
 
-export const getRentalById = async (id: number) => {
+export const getRentalById = async (id: number): Promise<RentalDetail> => {
   try {
     const response = await fetch(`${API_BASE_URL}/rentals/${id}`);
     if (!response.ok) {

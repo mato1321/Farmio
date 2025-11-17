@@ -7,31 +7,12 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, MapPin, Phone, Mail, User, FileText, Calendar } from "lucide-react";
-import { getRentalById } from "@/services/api";
-
-interface FarmlandData {
-  id: number;
-  contact_name: string;
-  contact_phone: string;
-  contact_email: string;
-  contact_role: string;
-  title: string;
-  county: string;
-  district: string;
-  address: string;
-  area: string;
-  rent_amount: string;
-  zone_type: string;
-  land_status: string[];
-  cover_photo_path: string | null;
-  photos_paths: string[];
-  created_at: string;
-}
+import { getRentalById, RentalDetail } from "@/services/api";
 
 const FarmlandDetail = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const [farmland, setFarmland] = useState<FarmlandData | null>(null);
+  const [farmland, setFarmland] = useState<RentalDetail | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -63,8 +44,8 @@ const FarmlandDetail = () => {
   };
 
   const handleContact = () => {
-    if (farmland?.contact_phone) {
-      window.location.href = `tel:${farmland.contact_phone}`;
+    if (farmland?.contact.phone) {
+      window.location.href = `tel:${farmland.contact.phone}`;
     }
   };
 
@@ -106,6 +87,11 @@ const FarmlandDetail = () => {
     );
   }
 
+  // 取得封面照片
+  const coverPhoto = farmland.photos.find(p => p.is_cover);
+  // 取得其他照片
+  const otherPhotos = farmland.photos.filter(p => !p.is_cover).sort((a, b) => a.sort_order - b.sort_order);
+
   return (
     <div className="min-h-screen">
       <Header />
@@ -129,8 +115,8 @@ const FarmlandDetail = () => {
                     <h1 className="text-3xl font-bold mb-2">{farmland.title}</h1>
                     <div className="flex items-center gap-2 text-muted-foreground">
                       <MapPin className="w-4 h-4" />
-                      <span>{farmland.county} {farmland.district}</span>
-                      {farmland.address && <span>• {farmland.address}</span>}
+                      <span>{farmland.location.county} {farmland.location.district}</span>
+                      {farmland.location.address && <span>• {farmland.location.address}</span>}
                     </div>
                   </div>
                   <Badge className="bg-green-600">可租用</Badge>
@@ -138,7 +124,7 @@ const FarmlandDetail = () => {
 
                 <Card className="overflow-hidden">
                   <img
-                    src={getImageUrl(farmland.cover_photo_path)}
+                    src={getImageUrl(coverPhoto?.photo_path || null)}
                     alt={farmland.title}
                     className="w-full aspect-video object-cover"
                     onError={(e) => {
@@ -147,13 +133,13 @@ const FarmlandDetail = () => {
                   />
                 </Card>
 
-                {farmland.photos_paths && farmland.photos_paths.length > 0 && (
+                {otherPhotos.length > 0 && (
                   <div className="grid grid-cols-3 gap-4">
-                    {farmland.photos_paths.map((photo, index) => (
-                      <Card key={index} className="overflow-hidden">
+                    {otherPhotos.map((photo) => (
+                      <Card key={photo.id} className="overflow-hidden">
                         <img
-                          src={getImageUrl(photo)}
-                          alt={`照片 ${index + 1}`}
+                          src={getImageUrl(photo.photo_path)}
+                          alt={`照片 ${photo.sort_order}`}
                           className="w-full aspect-video object-cover hover:scale-105 transition-transform cursor-pointer"
                           onError={(e) => {
                             (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=400&h=300&fit=crop";
@@ -205,13 +191,13 @@ const FarmlandDetail = () => {
                       </div>
                     </div>
 
-                    {farmland.land_status && farmland.land_status.length > 0 && (
+                    {farmland.land_statuses && farmland.land_statuses.length > 0 && (
                       <div className="mt-6">
                         <p className="text-sm text-muted-foreground mb-2">土地現況</p>
                         <div className="flex gap-2 flex-wrap">
-                          {farmland.land_status.map((status, index) => (
-                            <Badge key={index} variant="outline">
-                              {status}
+                          {farmland.land_statuses.map((statusObj) => (
+                            <Badge key={statusObj.id} variant="outline">
+                              {statusObj.status}
                             </Badge>
                           ))}
                         </div>
@@ -232,8 +218,8 @@ const FarmlandDetail = () => {
                         <User className="w-5 h-5 text-green-600 mt-1" />
                         <div>
                           <p className="text-sm text-muted-foreground">聯絡人</p>
-                          <p className="font-semibold">{farmland.contact_name}</p>
-                          <p className="text-sm text-muted-foreground">({farmland.contact_role})</p>
+                          <p className="font-semibold">{farmland.contact.name}</p>
+                          <p className="text-sm text-muted-foreground">({farmland.contact.role})</p>
                         </div>
                       </div>
 
@@ -241,32 +227,34 @@ const FarmlandDetail = () => {
                         <Phone className="w-5 h-5 text-green-600 mt-1" />
                         <div>
                           <p className="text-sm text-muted-foreground">聯絡電話</p>
-                          <p className="font-semibold">{farmland.contact_phone}</p>
+                          <p className="font-semibold">{farmland.contact.phone}</p>
                         </div>
                       </div>
 
-                      {farmland.contact_email && (
+                      {farmland.contact.email && (
                         <div className="flex items-start gap-3">
                           <Mail className="w-5 h-5 text-green-600 mt-1" />
                           <div>
                             <p className="text-sm text-muted-foreground">電子郵件</p>
-                            <p className="font-semibold break-all">{farmland.contact_email}</p>
+                            <p className="font-semibold break-all">{farmland.contact.email}</p>
                           </div>
                         </div>
                       )}
                     </div>
 
                     <div className="mt-6 space-y-2">
-                      <Button className="w-full" size="lg" onClick={handleContact}>
+                      <Button 
+                        className="w-full" 
+                        onClick={handleContact}
+                      >
                         <Phone className="w-4 h-4 mr-2" />
                         立即聯絡
                       </Button>
-                      
-                      {farmland.contact_email && (
+                      {farmland.contact.email && (
                         <Button 
                           variant="outline" 
                           className="w-full" 
-                          onClick={() => window.location.href = `mailto:${farmland.contact_email}`}
+                          onClick={() => window.location.href = `mailto:${farmland.contact.email}`}
                         >
                           <Mail className="w-4 h-4 mr-2" />
                           發送郵件
