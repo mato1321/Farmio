@@ -181,7 +181,7 @@ const FarmlandDetail = () => {
                         <div>
                           <p className="text-sm text-muted-foreground">租金</p>
                           <p className="font-semibold text-green-600">
-                            NT$ {parseInt(farmland.rent_amount).toLocaleString()} /年
+                            NT$ {parseInt(farmland.rent_amount).toLocaleString()} /月
                           </p>
                         </div>
                       </div>

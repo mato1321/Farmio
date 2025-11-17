@@ -150,7 +150,7 @@ const Farmland = () => {
                           <span className="font-semibold">面積:</span> {land.area} 坪
                         </div>
                         <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <span className="font-semibold">租金:</span> NT$ {parseInt(land.rent_amount).toLocaleString()} /年
+                          <span className="font-semibold">租金:</span> NT$ {parseInt(land.rent_amount).toLocaleString()} /月
                         </div>
                         <div className="flex items-center gap-2 text-sm text-muted-foreground">
                           <span className="font-semibold">分區:</span> {land.zone_type}

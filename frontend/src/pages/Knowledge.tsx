@@ -79,29 +79,23 @@ const Knowledge = () => {
             {/* 分類卡片 */}
             <div className="grid md:grid-cols-2 gap-8">
               {categories.map((category, index) => {
-                const Icon = category.icon;
                 return (
                   <Card 
                     key={index} 
                     className="hover:shadow-2xl transition-all duration-300 border-0 overflow-hidden group"
                   >
-                    {/* 卡片頭部 - 漸層背景 */}
+                    {/* 卡片頭部 - 漸層背景（移除 icon）*/}
                     <div className={`bg-gradient-to-r ${category.color} p-6 text-white relative overflow-hidden`}>
                       <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16"></div>
                       <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-12 -mb-12"></div>
                       
-                      <div className="relative flex items-start gap-4">
-                        <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0">
-                          <Icon className="w-7 h-7 text-white" />
-                        </div>
-                        <div className="flex-1">
-                          <CardTitle className="text-2xl font-bold text-white mb-2">
-                            {category.title}
-                          </CardTitle>
-                          <p className="text-white/90 text-sm">
-                            {category.description}
-                          </p>
-                        </div>
+                      <div className="relative">
+                        <CardTitle className="text-2xl font-bold text-white mb-2">
+                          {category.title}
+                        </CardTitle>
+                        <p className="text-white/90 text-sm">
+                          {category.description}
+                        </p>
                       </div>
                     </div>
 

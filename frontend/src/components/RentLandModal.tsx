@@ -314,7 +314,7 @@ const RentLandModal: React.FC<RentLandModalProps> = ({ isOpen, onClose, onSubmit
                   onChange={(e) => handleChange('rentAmount', e.target.value)}
                   className="flex-1"
                 />
-                <span className="flex items-center px-3 border rounded-md bg-gray-50">元/年</span>
+                <span className="flex items-center px-3 border rounded-md bg-gray-50">元/月</span>
               </div>
               <p className="text-sm text-muted-foreground"></p>
             </div>
