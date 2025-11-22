@@ -25,6 +25,17 @@ Farmio是一個創新的農地租用平台，透過創新的租地方式與AI技
 
 ---
 
+## 專案展示
+
+### 介紹影片
+[![Farmio 介紹影片](https://img.youtube.com/vi/vMO-xK8PH6Y/maxresdefault.jpg)](https://youtu.be/vMO-xK8PH6Y)
+
+### 相關資源
+- [完整專案報告 (PDF)](https://github.com/mato1321/Farmio/blob/main/report.pdf)
+- [專案海報](https://github.com/mato1321/Farmio/blob/main/poster.png)
+
+---
+
 ## 功能特色
 
 ### 農地租賃
