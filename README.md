@@ -25,6 +25,17 @@ Farmio is an innovative agricultural land rental platform that enhances farmland
 
 ---
 
+## Project Showcase
+
+### Introduction Video
+[![Farmio Introduction Video](https://img.youtube.com/vi/vMO-xK8PH6Y/maxresdefault.jpg)](https://youtu.be/vMO-xK8PH6Y)
+
+### Resources
+- [Full Project Report (PDF)](https://github.com/mato1321/Farmio/blob/main/report.pdf)
+- [Project Poster](https://github.com/mato1321/Farmio/blob/main/poster.png)
+
+---
+
 ## Features
 
 ### Farmland Rental
