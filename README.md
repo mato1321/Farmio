@@ -210,47 +210,80 @@ Farmio/
 │   │   │   ├── Enterprise.tsx   # Enterprise Cooperation Page
 │   │   │   └── Knowledge.tsx    # Knowledge Base Page
 │   │   │
+│   │   ├── services/            # API Service Layer
+│   │   │   └── api.ts           # API Client & HTTP Requests
+│   │   │
+│   │   ├── hooks/               # Custom React Hooks
+│   │   │   └── use-mobile.tsx   # Mobile Detection Hook
+│   │   │
 │   │   ├── utils/               # Utility Functions
 │   │   │   └── forumStorage.ts  # Forum Data Management (LocalStorage)
 │   │   │
+│   │   ├── lib/                 # Library Utilities
+│   │   │   └── utils.ts         # Shared Utility Functions
+│   │   │
 │   │   ├── App.tsx              # Main Application Component
 │   │   ├── main.tsx             # React Entry Point
-│   │   └── index.css            # Global Styles
+│   │   ├── index.css            # Global Styles
+│   │   └── vite-env.d.ts        # Vite Type Definitions
 │   │
 │   ├── public/                  # Static Assets
 │   │   └── logo.ico             # Favicon
 │   │
 │   ├── package.json             # Frontend Dependencies
+│   ├── package-lock.json        # npm Lock File
+│   ├── bun.lockb                # Bun Lock File
 │   ├── tsconfig.json            # TypeScript Configuration
+│   ├── tsconfig.app.json        # App TypeScript Config
+│   ├── tsconfig.node.json       # Node TypeScript Config
 │   ├── tailwind.config.ts       # TailwindCSS Configuration
+│   ├── postcss.config.js        # PostCSS Configuration
 │   ├── vite.config.ts           # Vite Configuration
-│   └── components.json          # shadcn/ui Configuration
+│   ├── eslint.config.js         # ESLint Configuration
+│   ├── components.json          # shadcn/ui Configuration
+│   ├── index.html               # HTML Entry Point
+│   └── .gitignore               # Git Ignore Rules
 │
 ├── backend/                     # Backend Application
 │   ├── app/
+│   │   ├── __init__.py          # Package Initializer
 │   │   ├── main.py              # FastAPI Main Application
 │   │   ├── config.py            # Configuration Management
+│   │   ├── database.py          # Database Connection & Session
 │   │   │
 │   │   ├── api/                 # API Routes
+│   │   │   ├── __init__.py
 │   │   │   └── routes/
-│   │   │       └── chat.py      # AI Chat API Endpoints
+│   │   │       ├── __init__.py
+│   │   │       ├── chat.py      # AI Chat API Endpoints
+│   │   │       └── lands.py     # Land Management Endpoints
 │   │   │
 │   │   ├── services/            # Business Logic Layer
+│   │   │   ├── __init__.py
 │   │   │   └── ollama.py        # Ollama Service Integration
 │   │   │
 │   │   ├── schemas/             # Pydantic Data Models
-│   │   │   └── chat.py          # Chat Request/Response Models
+│   │   │   ├── __init__.py
+│   │   │   ├── chat.py          # Chat Request/Response Models
+│   │   │   └── land.py          # Land Data Models
 │   │   │
-│   │   └── models/              # Database Models (Future)
-│   │       └── user.py          # User Model (Placeholder)
+│   │   └── models/              # SQLAlchemy Database Models
+│   │       ├── __init__.py
+│   │       ├── user.py          # User Model
+│   │       └── land.py          # Land Model
 │   │
+│   ├── migrations/              # Database Migration Scripts
+│   ├── uploads/                 # User Uploaded Files
 │   ├── venv/                    # Python Virtual Environment
 │   ├── requirements.txt         # Python Dependencies
 │   ├── .env.example             # Environment Variables Template
-│   └── run.py                   # Backend Startup Script
+│   ├── .gitignore               # Git Ignore Rules
+│   ├── init_normalized_db.py    # Database Initialization Script
+│   └── migrate_with_backup.py   # Database Migration Tool
 │
 ├── .gitignore                   # Git Ignore Rules
-├── README.md                    # Project Documentation
+├── README.md                    # Project Documentation (English)
+├── README_CN.md                 # Project Documentation (Chinese)
 └── package.json                 # Root Package Configuration
 ```
 

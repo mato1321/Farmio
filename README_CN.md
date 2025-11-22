@@ -186,14 +186,14 @@ uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 
 ```
 Farmio/
-├── frontend/                    # 前端應用程式
+├── frontend/                    # Frontend Application
 │   ├── src/
-│   │   ├── components/          # React 元件
-│   │   │   ├── Header.tsx       # 導航列
-│   │   │   ├── Footer.tsx       # 頁尾元件
-│   │   │   ├── Hero.tsx         # 主畫面英雄區塊
-│   │   │   ├── FloatingButtons.tsx  # AI 聊天浮動按鈕
-│   │   │   └── ui/              # shadcn/ui 元件
+│   │   ├── components/          # React Components
+│   │   │   ├── Header.tsx       # Navigation Header
+│   │   │   ├── Footer.tsx       # Footer Component
+│   │   │   ├── Hero.tsx         # Hero Section
+│   │   │   ├── FloatingButtons.tsx  # AI Chat Floating Button
+│   │   │   └── ui/              # shadcn/ui Components
 │   │   │       ├── button.tsx
 │   │   │       ├── card.tsx
 │   │   │       ├── dialog.tsx
@@ -202,56 +202,89 @@ Farmio/
 │   │   │       ├── badge.tsx
 │   │   │       └── avatar.tsx
 │   │   │
-│   │   ├── pages/               # 頁面元件
-│   │   │   ├── Index.tsx        # 首頁（含地圖）
-│   │   │   ├── Member.tsx       # 會員資料頁面
-│   │   │   ├── Forum.tsx        # 討論區列表
-│   │   │   ├── ForumPost.tsx    # 文章詳細頁面
-│   │   │   ├── Enterprise.tsx   # 企業合作頁面
-│   │   │   └── Knowledge.tsx    # 知識庫頁面
+│   │   ├── pages/               # Page Components
+│   │   │   ├── Index.tsx        # Home Page (with Map)
+│   │   │   ├── Member.tsx       # Member Profile Page
+│   │   │   ├── Forum.tsx        # Discussion Forum List
+│   │   │   ├── ForumPost.tsx    # Forum Post Detail Page
+│   │   │   ├── Enterprise.tsx   # Enterprise Cooperation Page
+│   │   │   └── Knowledge.tsx    # Knowledge Base Page
 │   │   │
-│   │   ├── utils/               # 工具函式
-│   │   │   └── forumStorage.ts  # 討論區資料管理（LocalStorage）
+│   │   ├── services/            # API Service Layer
+│   │   │   └── api.ts           # API Client & HTTP Requests
 │   │   │
-│   │   ├── App.tsx              # 主應用程式元件
-│   │   ├── main.tsx             # React 入口點
-│   │   └── index.css            # 全域樣式
+│   │   ├── hooks/               # Custom React Hooks
+│   │   │   └── use-mobile.tsx   # Mobile Detection Hook
+│   │   │
+│   │   ├── utils/               # Utility Functions
+│   │   │   └── forumStorage.ts  # Forum Data Management (LocalStorage)
+│   │   │
+│   │   ├── lib/                 # Library Utilities
+│   │   │   └── utils.ts         # Shared Utility Functions
+│   │   │
+│   │   ├── App.tsx              # Main Application Component
+│   │   ├── main.tsx             # React Entry Point
+│   │   ├── index.css            # Global Styles
+│   │   └── vite-env.d.ts        # Vite Type Definitions
 │   │
-│   ├── public/                  # 靜態資源
-│   │   └── logo.ico             # 網站圖示
+│   ├── public/                  # Static Assets
+│   │   └── logo.ico             # Favicon
 │   │
-│   ├── package.json             # 前端相依套件
-│   ├── tsconfig.json            # TypeScript 設定
-│   ├── tailwind.config.ts       # TailwindCSS 設定
-│   ├── vite.config.ts           # Vite 設定
-│   └── components.json          # shadcn/ui 設定
+│   ├── package.json             # Frontend Dependencies
+│   ├── package-lock.json        # npm Lock File
+│   ├── bun.lockb                # Bun Lock File
+│   ├── tsconfig.json            # TypeScript Configuration
+│   ├── tsconfig.app.json        # App TypeScript Config
+│   ├── tsconfig.node.json       # Node TypeScript Config
+│   ├── tailwind.config.ts       # TailwindCSS Configuration
+│   ├── postcss.config.js        # PostCSS Configuration
+│   ├── vite.config.ts           # Vite Configuration
+│   ├── eslint.config.js         # ESLint Configuration
+│   ├── components.json          # shadcn/ui Configuration
+│   ├── index.html               # HTML Entry Point
+│   └── .gitignore               # Git Ignore Rules
 │
-├── backend/                     # 後端應用程式
+├── backend/                     # Backend Application
 │   ├── app/
-│   │   ├── main.py              # FastAPI 主應用程式
-│   │   ├── config.py            # 設定管理
+│   │   ├── __init__.py          # Package Initializer
+│   │   ├── main.py              # FastAPI Main Application
+│   │   ├── config.py            # Configuration Management
+│   │   ├── database.py          # Database Connection & Session
 │   │   │
-│   │   ├── api/                 # API 路由
+│   │   ├── api/                 # API Routes
+│   │   │   ├── __init__.py
 │   │   │   └── routes/
-│   │   │       └── chat.py      # AI 聊天 API 端點
+│   │   │       ├── __init__.py
+│   │   │       ├── chat.py      # AI Chat API Endpoints
+│   │   │       └── lands.py     # Land Management Endpoints
 │   │   │
-│   │   ├── services/            # 業務邏輯層
-│   │   │   └── ollama.py        # Ollama 服務整合
+│   │   ├── services/            # Business Logic Layer
+│   │   │   ├── __init__.py
+│   │   │   └── ollama.py        # Ollama Service Integration
 │   │   │
-│   │   ├── schemas/             # Pydantic 資料模型
-│   │   │   └── chat.py          # 聊天請求/回應模型
+│   │   ├── schemas/             # Pydantic Data Models
+│   │   │   ├── __init__.py
+│   │   │   ├── chat.py          # Chat Request/Response Models
+│   │   │   └── land.py          # Land Data Models
 │   │   │
-│   │   └── models/              # 資料庫模型（未來使用）
-│   │       └── user.py          # 使用者模型（預留）
+│   │   └── models/              # SQLAlchemy Database Models
+│   │       ├── __init__.py
+│   │       ├── user.py          # User Model
+│   │       └── land.py          # Land Model
 │   │
-│   ├── venv/                    # Python 虛擬環境
-│   ├── requirements.txt         # Python 相依套件
-│   ├── .env.example             # 環境變數範本
-│   └── run.py                   # 後端啟動腳本
+│   ├── migrations/              # Database Migration Scripts
+│   ├── uploads/                 # User Uploaded Files
+│   ├── venv/                    # Python Virtual Environment
+│   ├── requirements.txt         # Python Dependencies
+│   ├── .env.example             # Environment Variables Template
+│   ├── .gitignore               # Git Ignore Rules
+│   ├── init_normalized_db.py    # Database Initialization Script
+│   └── migrate_with_backup.py   # Database Migration Tool
 │
-├── .gitignore                   # Git 忽略規則
-├── README.md                    # 專案說明文件
-└── package.json                 # 根目錄套件設定
+├── .gitignore                   # Git Ignore Rules
+├── README.md                    # Project Documentation (English)
+├── README_CN.md                 # Project Documentation (Chinese)
+└── package.json                 # Root Package Configuration
 ```
 
 ---
